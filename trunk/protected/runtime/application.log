@@ -1,0 +1,923 @@
+2012/01/04 07:42:30 [error] [exception.CException] exception 'CException' with message 'Doc360 and its behaviors do not have a method or closure named "docSrc".' in D:\xami\yii\framework\base\CComponent.php:266
+Stack trace:
+#0 D:\xami\yii\web-api\protected\controllers\ApiController.php(8): CComponent->__call('docSrc', Array)
+#1 D:\xami\yii\web-api\protected\controllers\ApiController.php(8): Doc360->docSrc(5)
+#2 D:\xami\yii\framework\web\actions\CInlineAction.php(50): ApiController->actionIndex()
+#3 D:\xami\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 D:\xami\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 D:\xami\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 D:\xami\yii\framework\web\CWebApplication.php(276): CController->run('')
+#7 D:\xami\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('api')
+#8 D:\xami\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 D:\xami\yii\web-api\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=api
+---
+2012/01/04 07:44:05 [error] [exception.CException] exception 'CException' with message 'Doc360 and its behaviors do not have a method or closure named "DocSrc".' in D:\xami\yii\framework\base\CComponent.php:266
+Stack trace:
+#0 D:\xami\yii\web-api\protected\controllers\ApiController.php(8): CComponent->__call('DocSrc', Array)
+#1 D:\xami\yii\web-api\protected\controllers\ApiController.php(8): Doc360->DocSrc(5)
+#2 D:\xami\yii\framework\web\actions\CInlineAction.php(50): ApiController->actionIndex()
+#3 D:\xami\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 D:\xami\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 D:\xami\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 D:\xami\yii\framework\web\CWebApplication.php(276): CController->run('')
+#7 D:\xami\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('api')
+#8 D:\xami\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 D:\xami\yii\web-api\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=api
+---
+2012/01/04 07:49:48 [error] [php] Memcache::get() [<a href='memcache.get'>memcache.get</a>]: Server 127.0.0.1 (tcp 11211) failed with: ÓÉÓÚÁ¬½Ó·½ÔÚÒ»¶ÎÊ±¼äºóÃ»ÓÐÕýÈ·´ð¸´»òÁ¬½ÓµÄÖ÷»úÃ»ÓÐ·´Ó¦£¬Á¬½Ó³¢ÊÔÊ§°Ü¡£
+ (10060) (D:\xami\yii\framework\caching\CMemCache.php:143)
+Stack trace:
+#0 D:\xami\yii\web-api\protected\components\Tools.php(15): CMemCache->get()
+#1 D:\xami\yii\web-api\protected\extensions\doc360.php(18): OZCurl()
+#2 D:\xami\yii\web-api\protected\controllers\ApiController.php(8): Doc360->setDocSrc()
+#3 D:\xami\yii\framework\web\actions\CInlineAction.php(50): ApiController->actionIndex()
+#4 D:\xami\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#5 D:\xami\yii\framework\web\CController.php(287): ApiController->runAction()
+#6 D:\xami\yii\framework\web\CController.php(266): ApiController->runActionWithFilters()
+#7 D:\xami\yii\framework\web\CWebApplication.php(276): ApiController->run()
+#8 D:\xami\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#9 D:\xami\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 D:\xami\yii\web-api\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=api
+in D:\xami\yii\web-api\protected\components\Tools.php (15)
+in D:\xami\yii\web-api\protected\extensions\doc360.php (18)
+in D:\xami\yii\web-api\protected\controllers\ApiController.php (8)
+2012/01/04 07:57:27 [error] [exception.CException] exception 'CException' with message 'Property "CWebApplication.CURL" is not defined.' in D:\xami\yii\framework\base\CComponent.php:131
+Stack trace:
+#0 D:\xami\yii\framework\base\CModule.php(106): CComponent->__get('CURL')
+#1 D:\xami\yii\web-api\protected\components\Tools.php(19): CModule->__get('CURL')
+#2 D:\xami\yii\web-api\protected\extensions\doc360.php(18): Tools::OZCurl('http://www.360d...', 600, false)
+#3 D:\xami\yii\web-api\protected\controllers\ApiController.php(8): Doc360->setDocSrc(5)
+#4 D:\xami\yii\framework\web\actions\CInlineAction.php(50): ApiController->actionIndex()
+#5 D:\xami\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#6 D:\xami\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#7 D:\xami\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\xami\yii\framework\web\CWebApplication.php(276): CController->run('')
+#9 D:\xami\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('api')
+#10 D:\xami\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 D:\xami\yii\web-api\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/index.php?r=api
+---
+2012/01/08 15:47:59 [error] [php] Trying to get property of non-object (D:\xami\yii\web-api\protected\controllers\ApiController.php:19)
+Stack trace:
+#0 D:\xami\yii\framework\web\CController.php(287): ApiController->runAction()
+#1 D:\xami\yii\framework\web\CController.php(266): ApiController->runActionWithFilters()
+#2 D:\xami\yii\framework\web\CWebApplication.php(276): ApiController->run()
+#3 D:\xami\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#4 D:\xami\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xami\yii\web-api\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=api
+in D:\xami\yii\web-api\protected\controllers\ApiController.php (19)
+in D:\xami\yii\web-api\index.php (13)
+2012/01/08 15:48:28 [error] [php] Trying to get property of non-object (D:\xami\yii\web-api\protected\controllers\ApiController.php:19)
+Stack trace:
+#0 D:\xami\yii\framework\web\CController.php(287): ApiController->runAction()
+#1 D:\xami\yii\framework\web\CController.php(266): ApiController->runActionWithFilters()
+#2 D:\xami\yii\framework\web\CWebApplication.php(276): ApiController->run()
+#3 D:\xami\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#4 D:\xami\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xami\yii\web-api\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=api
+in D:\xami\yii\web-api\protected\controllers\ApiController.php (19)
+in D:\xami\yii\web-api\index.php (13)
+2012/01/08 16:50:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "wp".' in D:\xami\yii\framework\web\CWebApplication.php:280
+Stack trace:
+#0 D:\xami\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('wp')
+#1 D:\xami\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\xami\yii\web-api\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php?r=wp
+---
+2012/01/08 16:50:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "pw".' in D:\xami\yii\framework\web\CWebApplication.php:280
+Stack trace:
+#0 D:\xami\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('pw')
+#1 D:\xami\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\xami\yii\web-api\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php?r=pw
+---
+2012/01/08 16:51:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "pw".' in D:\xami\yii\framework\web\CWebApplication.php:280
+Stack trace:
+#0 D:\xami\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('pw')
+#1 D:\xami\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\xami\yii\web-api\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php?r=pw
+---
+2012/01/08 16:54:28 [error] [php] include() [<a href='function.include'>function.include</a>]: Filename cannot be empty (D:\xami\yii\web-api\protected\components\WpRemotePost.php:21)
+Stack trace:
+#0 D:\xami\yii\framework\web\actions\CInlineAction.php(50): ApiController->actionPw()
+#1 D:\xami\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#2 D:\xami\yii\framework\web\CController.php(287): ApiController->runAction()
+#3 D:\xami\yii\framework\web\CController.php(266): ApiController->runActionWithFilters()
+#4 D:\xami\yii\framework\web\CWebApplication.php(276): ApiController->run()
+#5 D:\xami\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#6 D:\xami\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#7 D:\xami\yii\web-api\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=api/pw
+in D:\xami\yii\web-api\protected\components\WpRemotePost.php (21)
+in D:\xami\yii\web-api\protected\components\WpRemotePost.php (21)
+in D:\xami\yii\web-api\protected\controllers\ApiController.php (36)
+2012/01/08 16:58:43 [error] [php] Undefined property: WpRemotePost::$ixrPath (D:\xami\yii\web-api\protected\components\WpRemotePost.php:23)
+Stack trace:
+#0 D:\xami\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#1 D:\xami\yii\framework\web\CController.php(287): ApiController->runAction()
+#2 D:\xami\yii\framework\web\CController.php(266): ApiController->runActionWithFilters()
+#3 D:\xami\yii\framework\web\CWebApplication.php(276): ApiController->run()
+#4 D:\xami\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#5 D:\xami\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 D:\xami\yii\web-api\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=api/pw
+in D:\xami\yii\web-api\protected\components\WpRemotePost.php (23)
+in D:\xami\yii\web-api\protected\controllers\ApiController.php (36)
+in D:\xami\yii\web-api\index.php (13)
+2012/01/08 16:59:44 [error] [php] include(D:\xami\yii\web-api) [<a href='function.include'>function.include</a>]: failed to open stream: Permission denied (D:\xami\yii\web-api\protected\components\WpRemotePost.php:23)
+Stack trace:
+#0 D:\xami\yii\framework\web\actions\CInlineAction.php(50): ApiController->actionPw()
+#1 D:\xami\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#2 D:\xami\yii\framework\web\CController.php(287): ApiController->runAction()
+#3 D:\xami\yii\framework\web\CController.php(266): ApiController->runActionWithFilters()
+#4 D:\xami\yii\framework\web\CWebApplication.php(276): ApiController->run()
+#5 D:\xami\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#6 D:\xami\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#7 D:\xami\yii\web-api\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=api/pw
+in D:\xami\yii\web-api\protected\components\WpRemotePost.php (23)
+in D:\xami\yii\web-api\protected\components\WpRemotePost.php (23)
+in D:\xami\yii\web-api\protected\controllers\ApiController.php (36)
+2012/01/09 06:05:31 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in D:\xami\yii\framework\web\CController.php:337
+Stack trace:
+#0 D:\xami\yii\framework\web\CController.php(310): CController->invalidActionParams(Object(CInlineAction))
+#1 D:\xami\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#2 D:\xami\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#3 D:\xami\yii\framework\web\CWebApplication.php(276): CController->run('do')
+#4 D:\xami\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('api/do')
+#5 D:\xami\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 D:\xami\yii\web-api\index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/index.php?r=api/do
+---
+2012/01/09 06:06:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "dos".' in D:\xami\yii\framework\web\CController.php:484
+Stack trace:
+#0 D:\xami\yii\framework\web\CController.php(271): CController->missingAction('dos')
+#1 D:\xami\yii\framework\web\CWebApplication.php(276): CController->run('dos')
+#2 D:\xami\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('api/dos')
+#3 D:\xami\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\xami\yii\web-api\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=api/dos
+---
+2012/01/09 06:06:08 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in D:\xami\yii\framework\web\CController.php:337
+Stack trace:
+#0 D:\xami\yii\framework\web\CController.php(310): CController->invalidActionParams(Object(CInlineAction))
+#1 D:\xami\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#2 D:\xami\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#3 D:\xami\yii\framework\web\CWebApplication.php(276): CController->run('do')
+#4 D:\xami\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('api/do')
+#5 D:\xami\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 D:\xami\yii\web-api\index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/index.php?r=api/do
+---
+2012/01/09 06:06:25 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in D:\xami\yii\framework\web\CController.php:337
+Stack trace:
+#0 D:\xami\yii\framework\web\CController.php(310): CController->invalidActionParams(Object(CInlineAction))
+#1 D:\xami\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#2 D:\xami\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#3 D:\xami\yii\framework\web\CWebApplication.php(276): CController->run('dos')
+#4 D:\xami\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('api/dos')
+#5 D:\xami\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 D:\xami\yii\web-api\index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/index.php?r=api/dos
+---
+2012/01/09 06:06:36 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "dos".' in D:\xami\yii\framework\web\CController.php:484
+Stack trace:
+#0 D:\xami\yii\framework\web\CController.php(271): CController->missingAction('dos')
+#1 D:\xami\yii\framework\web\CWebApplication.php(276): CController->run('dos')
+#2 D:\xami\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('api/dos')
+#3 D:\xami\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\xami\yii\web-api\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=api/dos
+---
+2012/01/09 06:06:39 [error] [exception.CException] exception 'CException' with message 'Property "ApiController.sid" is not defined.' in D:\xami\yii\framework\base\CComponent.php:174
+Stack trace:
+#0 D:\xami\yii\web-api\protected\controllers\ApiController.php(50): CComponent->__set('sid', 0)
+#1 D:\xami\yii\framework\web\actions\CInlineAction.php(50): ApiController->actionDo()
+#2 D:\xami\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#3 D:\xami\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#4 D:\xami\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 D:\xami\yii\framework\web\CWebApplication.php(276): CController->run('do')
+#6 D:\xami\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('api/do')
+#7 D:\xami\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#8 D:\xami\yii\web-api\index.php(13): CApplication->run()
+#9 {main}
+REQUEST_URI=/index.php?r=api/do
+---
+2012/01/09 06:06:46 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in D:\xami\yii\framework\web\CController.php:337
+Stack trace:
+#0 D:\xami\yii\framework\web\CController.php(310): CController->invalidActionParams(Object(CInlineAction))
+#1 D:\xami\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#2 D:\xami\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#3 D:\xami\yii\framework\web\CWebApplication.php(276): CController->run('do')
+#4 D:\xami\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('api/do')
+#5 D:\xami\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 D:\xami\yii\web-api\index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/index.php?r=api/do
+---
+2012/01/09 06:07:06 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in D:\xami\yii\framework\web\CController.php:337
+Stack trace:
+#0 D:\xami\yii\framework\web\CController.php(310): CController->invalidActionParams(Object(CInlineAction))
+#1 D:\xami\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#2 D:\xami\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#3 D:\xami\yii\framework\web\CWebApplication.php(276): CController->run('do')
+#4 D:\xami\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('api/do')
+#5 D:\xami\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 D:\xami\yii\web-api\index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/index.php?r=api/do
+---
+2012/01/09 06:07:14 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in D:\xami\yii\framework\web\CController.php:337
+Stack trace:
+#0 D:\xami\yii\framework\web\CController.php(310): CController->invalidActionParams(Object(CInlineAction))
+#1 D:\xami\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#2 D:\xami\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#3 D:\xami\yii\framework\web\CWebApplication.php(276): CController->run('do')
+#4 D:\xami\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('api/do')
+#5 D:\xami\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 D:\xami\yii\web-api\index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/index.php?r=api/do
+---
+2012/01/09 06:07:15 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in D:\xami\yii\framework\web\CController.php:337
+Stack trace:
+#0 D:\xami\yii\framework\web\CController.php(310): CController->invalidActionParams(Object(CInlineAction))
+#1 D:\xami\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#2 D:\xami\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#3 D:\xami\yii\framework\web\CWebApplication.php(276): CController->run('do')
+#4 D:\xami\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('api/do')
+#5 D:\xami\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 D:\xami\yii\web-api\index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/index.php?r=api/do
+---
+2012/01/09 06:07:27 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in D:\xami\yii\framework\web\CController.php:337
+Stack trace:
+#0 D:\xami\yii\framework\web\CController.php(310): CController->invalidActionParams(Object(CInlineAction))
+#1 D:\xami\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#2 D:\xami\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#3 D:\xami\yii\framework\web\CWebApplication.php(276): CController->run('do')
+#4 D:\xami\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('api/do')
+#5 D:\xami\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 D:\xami\yii\web-api\index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/index.php?r=api/do
+---
+2012/01/09 06:07:28 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in D:\xami\yii\framework\web\CController.php:337
+Stack trace:
+#0 D:\xami\yii\framework\web\CController.php(310): CController->invalidActionParams(Object(CInlineAction))
+#1 D:\xami\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#2 D:\xami\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#3 D:\xami\yii\framework\web\CWebApplication.php(276): CController->run('do')
+#4 D:\xami\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('api/do')
+#5 D:\xami\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 D:\xami\yii\web-api\index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/index.php?r=api/do
+---
+2012/01/09 06:07:29 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in D:\xami\yii\framework\web\CController.php:337
+Stack trace:
+#0 D:\xami\yii\framework\web\CController.php(310): CController->invalidActionParams(Object(CInlineAction))
+#1 D:\xami\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#2 D:\xami\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#3 D:\xami\yii\framework\web\CWebApplication.php(276): CController->run('do')
+#4 D:\xami\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('api/do')
+#5 D:\xami\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 D:\xami\yii\web-api\index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/index.php?r=api/do
+---
+2012/01/09 06:07:29 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in D:\xami\yii\framework\web\CController.php:337
+Stack trace:
+#0 D:\xami\yii\framework\web\CController.php(310): CController->invalidActionParams(Object(CInlineAction))
+#1 D:\xami\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#2 D:\xami\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#3 D:\xami\yii\framework\web\CWebApplication.php(276): CController->run('do')
+#4 D:\xami\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('api/do')
+#5 D:\xami\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 D:\xami\yii\web-api\index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/index.php?r=api/do
+---
+2012/01/09 06:07:38 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in D:\xami\yii\framework\web\CController.php:337
+Stack trace:
+#0 D:\xami\yii\framework\web\CController.php(310): CController->invalidActionParams(Object(CInlineAction))
+#1 D:\xami\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#2 D:\xami\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#3 D:\xami\yii\framework\web\CWebApplication.php(276): CController->run('do')
+#4 D:\xami\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('api/do')
+#5 D:\xami\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 D:\xami\yii\web-api\index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/index.php?r=api/do
+---
+2012/01/09 06:10:32 [error] [php] Trying to get property of non-object (D:\xami\yii\web-api\protected\controllers\ApiController.php:65)
+Stack trace:
+#0 D:\xami\yii\framework\web\CController.php(287): ApiController->runAction()
+#1 D:\xami\yii\framework\web\CController.php(266): ApiController->runActionWithFilters()
+#2 D:\xami\yii\framework\web\CWebApplication.php(276): ApiController->run()
+#3 D:\xami\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#4 D:\xami\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xami\yii\web-api\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=api/do&sid=5000
+in D:\xami\yii\web-api\protected\controllers\ApiController.php (65)
+in D:\xami\yii\web-api\index.php (13)
+2012/01/09 06:10:39 [error] [php] Trying to get property of non-object (D:\xami\yii\web-api\protected\controllers\ApiController.php:65)
+Stack trace:
+#0 D:\xami\yii\framework\web\CController.php(287): ApiController->runAction()
+#1 D:\xami\yii\framework\web\CController.php(266): ApiController->runActionWithFilters()
+#2 D:\xami\yii\framework\web\CWebApplication.php(276): ApiController->run()
+#3 D:\xami\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#4 D:\xami\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xami\yii\web-api\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=api/do&sid=5000
+in D:\xami\yii\web-api\protected\controllers\ApiController.php (65)
+in D:\xami\yii\web-api\index.php (13)
+2012/01/09 07:25:52 [error] [php] preg_split() [<a href='function.preg-split'>function.preg-split</a>]: No ending delimiter '/' found (D:\xami\yii\web-api\protected\controllers\ApiController.php:64)
+Stack trace:
+#0 D:\xami\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#1 D:\xami\yii\framework\web\CController.php(287): ApiController->runAction()
+#2 D:\xami\yii\framework\web\CController.php(266): ApiController->runActionWithFilters()
+#3 D:\xami\yii\framework\web\CWebApplication.php(276): ApiController->run()
+#4 D:\xami\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#5 D:\xami\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 D:\xami\yii\web-api\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=api/do&sid=5000
+in D:\xami\yii\web-api\protected\controllers\ApiController.php (64)
+in D:\xami\yii\web-api\index.php (13)
+2012/01/09 07:27:05 [error] [php] Undefined variable: category (D:\xami\yii\web-api\protected\controllers\ApiController.php:74)
+Stack trace:
+#0 D:\xami\yii\framework\web\CController.php(287): ApiController->runAction()
+#1 D:\xami\yii\framework\web\CController.php(266): ApiController->runActionWithFilters()
+#2 D:\xami\yii\framework\web\CWebApplication.php(276): ApiController->run()
+#3 D:\xami\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#4 D:\xami\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xami\yii\web-api\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=api/do&sid=5000
+in D:\xami\yii\web-api\protected\controllers\ApiController.php (74)
+in D:\xami\yii\web-api\index.php (13)
+2012/01/09 07:49:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'æ­¤é¡µé¢ä¸å­˜åœ¨' in D:\xami\yii\web-api\protected\controllers\ApiController.php:52
+Stack trace:
+#0 D:\xami\yii\framework\web\actions\CInlineAction.php(50): ApiController->actionDo()
+#1 D:\xami\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#2 D:\xami\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#3 D:\xami\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#4 D:\xami\yii\framework\web\CWebApplication.php(276): CController->run('do')
+#5 D:\xami\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('api/do')
+#6 D:\xami\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#7 D:\xami\yii\web-api\index.php(13): CApplication->run()
+#8 {main}
+REQUEST_URI=/index.php?r=api/do&sid=5003
+---
+2012/01/09 07:49:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'æ­¤é¡µé¢ä¸å­˜åœ¨' in D:\xami\yii\web-api\protected\controllers\ApiController.php:52
+Stack trace:
+#0 D:\xami\yii\framework\web\actions\CInlineAction.php(50): ApiController->actionDo()
+#1 D:\xami\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#2 D:\xami\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#3 D:\xami\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#4 D:\xami\yii\framework\web\CWebApplication.php(276): CController->run('do')
+#5 D:\xami\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('api/do')
+#6 D:\xami\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#7 D:\xami\yii\web-api\index.php(13): CApplication->run()
+#8 {main}
+REQUEST_URI=/index.php?r=api/do&sid=5005
+---
+2012/01/09 07:53:28 [error] [php] include(ExceptionClass.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (D:\xami\yii\framework\YiiBase.php:418)
+Stack trace:
+#0 D:\xami\yii\web-api\protected\controllers\ApiController.php(52): spl_autoload_call()
+#1 D:\xami\yii\framework\web\actions\CInlineAction.php(50): ApiController->actionDo()
+#2 D:\xami\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#3 D:\xami\yii\framework\web\CController.php(287): ApiController->runAction()
+#4 D:\xami\yii\framework\web\CController.php(266): ApiController->runActionWithFilters()
+#5 D:\xami\yii\framework\web\CWebApplication.php(276): ApiController->run()
+#6 D:\xami\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#7 D:\xami\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#8 D:\xami\yii\web-api\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=api/do&sid=5005
+in D:\xami\yii\web-api\protected\controllers\ApiController.php (52)
+in D:\xami\yii\web-api\index.php (13)
+2012/01/09 08:03:49 [error] [php] include(ExceptionClass.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (D:\xami\yii\framework\YiiBase.php:418)
+Stack trace:
+#0 D:\xami\yii\web-api\protected\controllers\ApiController.php(52): spl_autoload_call()
+#1 D:\xami\yii\framework\web\actions\CInlineAction.php(50): ApiController->actionDo()
+#2 D:\xami\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#3 D:\xami\yii\framework\web\CController.php(287): ApiController->runAction()
+#4 D:\xami\yii\framework\web\CController.php(266): ApiController->runActionWithFilters()
+#5 D:\xami\yii\framework\web\CWebApplication.php(276): ApiController->run()
+#6 D:\xami\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#7 D:\xami\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#8 D:\xami\yii\web-api\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=api/do&sid=5005
+in D:\xami\yii\web-api\protected\controllers\ApiController.php (52)
+in D:\xami\yii\web-api\index.php (13)
+2012/01/09 08:05:26 [error] [exception.CException] exception 'CException' with message 'æ­¤é¡µé¢ä¸å­˜åœ¨' in D:\xami\yii\web-api\protected\controllers\ApiController.php:52
+Stack trace:
+#0 D:\xami\yii\framework\web\actions\CInlineAction.php(50): ApiController->actionDo()
+#1 D:\xami\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#2 D:\xami\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#3 D:\xami\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#4 D:\xami\yii\framework\web\CWebApplication.php(276): CController->run('do')
+#5 D:\xami\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('api/do')
+#6 D:\xami\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#7 D:\xami\yii\web-api\index.php(13): CApplication->run()
+#8 {main}
+REQUEST_URI=/index.php?r=api/do&sid=5005
+---
+2012/01/09 08:12:19 [error] [php] preg_split() [<a href='function.preg-split'>function.preg-split</a>]: Compilation failed: PCRE does not support \L, \l, \N{name}, \U, or \u at offset 3 (D:\xami\yii\web-api\protected\controllers\ApiController.php:66)
+Stack trace:
+#0 D:\xami\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#1 D:\xami\yii\framework\web\CController.php(287): ApiController->runAction()
+#2 D:\xami\yii\framework\web\CController.php(266): ApiController->runActionWithFilters()
+#3 D:\xami\yii\framework\web\CWebApplication.php(276): ApiController->run()
+#4 D:\xami\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#5 D:\xami\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 D:\xami\yii\web-api\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=api/do&sid=5006
+in D:\xami\yii\web-api\protected\controllers\ApiController.php (66)
+in D:\xami\yii\web-api\index.php (13)
+2012/01/09 08:12:36 [error] [php] preg_split() [<a href='function.preg-split'>function.preg-split</a>]: Unknown modifier '\' (D:\xami\yii\web-api\protected\controllers\ApiController.php:66)
+Stack trace:
+#0 D:\xami\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#1 D:\xami\yii\framework\web\CController.php(287): ApiController->runAction()
+#2 D:\xami\yii\framework\web\CController.php(266): ApiController->runActionWithFilters()
+#3 D:\xami\yii\framework\web\CWebApplication.php(276): ApiController->run()
+#4 D:\xami\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#5 D:\xami\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 D:\xami\yii\web-api\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=api/do&sid=5006
+in D:\xami\yii\web-api\protected\controllers\ApiController.php (66)
+in D:\xami\yii\web-api\index.php (13)
+2012/01/09 08:12:37 [error] [php] preg_split() [<a href='function.preg-split'>function.preg-split</a>]: Unknown modifier '\' (D:\xami\yii\web-api\protected\controllers\ApiController.php:66)
+Stack trace:
+#0 D:\xami\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#1 D:\xami\yii\framework\web\CController.php(287): ApiController->runAction()
+#2 D:\xami\yii\framework\web\CController.php(266): ApiController->runActionWithFilters()
+#3 D:\xami\yii\framework\web\CWebApplication.php(276): ApiController->run()
+#4 D:\xami\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#5 D:\xami\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 D:\xami\yii\web-api\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=api/do&sid=5006
+in D:\xami\yii\web-api\protected\controllers\ApiController.php (66)
+in D:\xami\yii\web-api\index.php (13)
+2012/01/09 08:12:38 [error] [php] preg_split() [<a href='function.preg-split'>function.preg-split</a>]: Unknown modifier '\' (D:\xami\yii\web-api\protected\controllers\ApiController.php:66)
+Stack trace:
+#0 D:\xami\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#1 D:\xami\yii\framework\web\CController.php(287): ApiController->runAction()
+#2 D:\xami\yii\framework\web\CController.php(266): ApiController->runActionWithFilters()
+#3 D:\xami\yii\framework\web\CWebApplication.php(276): ApiController->run()
+#4 D:\xami\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#5 D:\xami\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 D:\xami\yii\web-api\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=api/do&sid=5006
+in D:\xami\yii\web-api\protected\controllers\ApiController.php (66)
+in D:\xami\yii\web-api\index.php (13)
+2012/01/09 08:12:59 [error] [php] preg_split() [<a href='function.preg-split'>function.preg-split</a>]: Compilation failed: PCRE does not support \L, \l, \N{name}, \U, or \u at offset 2 (D:\xami\yii\web-api\protected\controllers\ApiController.php:66)
+Stack trace:
+#0 D:\xami\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#1 D:\xami\yii\framework\web\CController.php(287): ApiController->runAction()
+#2 D:\xami\yii\framework\web\CController.php(266): ApiController->runActionWithFilters()
+#3 D:\xami\yii\framework\web\CWebApplication.php(276): ApiController->run()
+#4 D:\xami\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#5 D:\xami\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 D:\xami\yii\web-api\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=api/do&sid=5006
+in D:\xami\yii\web-api\protected\controllers\ApiController.php (66)
+in D:\xami\yii\web-api\index.php (13)
+2012/01/09 08:13:02 [error] [php] preg_split() [<a href='function.preg-split'>function.preg-split</a>]: Compilation failed: PCRE does not support \L, \l, \N{name}, \U, or \u at offset 2 (D:\xami\yii\web-api\protected\controllers\ApiController.php:66)
+Stack trace:
+#0 D:\xami\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#1 D:\xami\yii\framework\web\CController.php(287): ApiController->runAction()
+#2 D:\xami\yii\framework\web\CController.php(266): ApiController->runActionWithFilters()
+#3 D:\xami\yii\framework\web\CWebApplication.php(276): ApiController->run()
+#4 D:\xami\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#5 D:\xami\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 D:\xami\yii\web-api\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=api/do&sid=5006
+in D:\xami\yii\web-api\protected\controllers\ApiController.php (66)
+in D:\xami\yii\web-api\index.php (13)
+2012/01/09 08:13:11 [error] [php] preg_split() [<a href='function.preg-split'>function.preg-split</a>]: Compilation failed: PCRE does not support \L, \l, \N{name}, \U, or \u at offset 2 (D:\xami\yii\web-api\protected\controllers\ApiController.php:66)
+Stack trace:
+#0 D:\xami\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#1 D:\xami\yii\framework\web\CController.php(287): ApiController->runAction()
+#2 D:\xami\yii\framework\web\CController.php(266): ApiController->runActionWithFilters()
+#3 D:\xami\yii\framework\web\CWebApplication.php(276): ApiController->run()
+#4 D:\xami\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#5 D:\xami\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 D:\xami\yii\web-api\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=api/do&sid=5006
+in D:\xami\yii\web-api\protected\controllers\ApiController.php (66)
+in D:\xami\yii\web-api\index.php (13)
+2012/01/09 08:13:12 [error] [php] preg_split() [<a href='function.preg-split'>function.preg-split</a>]: Compilation failed: PCRE does not support \L, \l, \N{name}, \U, or \u at offset 2 (D:\xami\yii\web-api\protected\controllers\ApiController.php:66)
+Stack trace:
+#0 D:\xami\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#1 D:\xami\yii\framework\web\CController.php(287): ApiController->runAction()
+#2 D:\xami\yii\framework\web\CController.php(266): ApiController->runActionWithFilters()
+#3 D:\xami\yii\framework\web\CWebApplication.php(276): ApiController->run()
+#4 D:\xami\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#5 D:\xami\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 D:\xami\yii\web-api\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=api/do&sid=5006
+in D:\xami\yii\web-api\protected\controllers\ApiController.php (66)
+in D:\xami\yii\web-api\index.php (13)
+2012/01/09 08:13:13 [error] [php] preg_split() [<a href='function.preg-split'>function.preg-split</a>]: Compilation failed: PCRE does not support \L, \l, \N{name}, \U, or \u at offset 2 (D:\xami\yii\web-api\protected\controllers\ApiController.php:66)
+Stack trace:
+#0 D:\xami\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#1 D:\xami\yii\framework\web\CController.php(287): ApiController->runAction()
+#2 D:\xami\yii\framework\web\CController.php(266): ApiController->runActionWithFilters()
+#3 D:\xami\yii\framework\web\CWebApplication.php(276): ApiController->run()
+#4 D:\xami\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#5 D:\xami\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 D:\xami\yii\web-api\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=api/do&sid=5006
+in D:\xami\yii\web-api\protected\controllers\ApiController.php (66)
+in D:\xami\yii\web-api\index.php (13)
+2012/01/09 08:13:35 [error] [php] preg_split() [<a href='function.preg-split'>function.preg-split</a>]: Unknown modifier '\' (D:\xami\yii\web-api\protected\controllers\ApiController.php:66)
+Stack trace:
+#0 D:\xami\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#1 D:\xami\yii\framework\web\CController.php(287): ApiController->runAction()
+#2 D:\xami\yii\framework\web\CController.php(266): ApiController->runActionWithFilters()
+#3 D:\xami\yii\framework\web\CWebApplication.php(276): ApiController->run()
+#4 D:\xami\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#5 D:\xami\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 D:\xami\yii\web-api\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=api/do&sid=5006
+in D:\xami\yii\web-api\protected\controllers\ApiController.php (66)
+in D:\xami\yii\web-api\index.php (13)
+2012/01/09 08:14:53 [error] [php] preg_split() [<a href='function.preg-split'>function.preg-split</a>]: Compilation failed: character value in \x{...} sequence is too large at offset 8 (D:\xami\yii\web-api\protected\controllers\ApiController.php:66)
+Stack trace:
+#0 D:\xami\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#1 D:\xami\yii\framework\web\CController.php(287): ApiController->runAction()
+#2 D:\xami\yii\framework\web\CController.php(266): ApiController->runActionWithFilters()
+#3 D:\xami\yii\framework\web\CWebApplication.php(276): ApiController->run()
+#4 D:\xami\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#5 D:\xami\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 D:\xami\yii\web-api\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=api/do&sid=5006
+in D:\xami\yii\web-api\protected\controllers\ApiController.php (66)
+in D:\xami\yii\web-api\index.php (13)
+2012/01/09 08:16:20 [error] [php] preg_split() [<a href='function.preg-split'>function.preg-split</a>]: Compilation failed: PCRE does not support \L, \l, \N{name}, \U, or \u at offset 3 (D:\xami\yii\web-api\protected\controllers\ApiController.php:66)
+Stack trace:
+#0 D:\xami\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#1 D:\xami\yii\framework\web\CController.php(287): ApiController->runAction()
+#2 D:\xami\yii\framework\web\CController.php(266): ApiController->runActionWithFilters()
+#3 D:\xami\yii\framework\web\CWebApplication.php(276): ApiController->run()
+#4 D:\xami\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#5 D:\xami\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 D:\xami\yii\web-api\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=api/do&sid=5006
+in D:\xami\yii\web-api\protected\controllers\ApiController.php (66)
+in D:\xami\yii\web-api\index.php (13)
+2012/01/09 08:16:31 [error] [php] preg_split() [<a href='function.preg-split'>function.preg-split</a>]: Compilation failed: PCRE does not support \L, \l, \N{name}, \U, or \u at offset 3 (D:\xami\yii\web-api\protected\controllers\ApiController.php:66)
+Stack trace:
+#0 D:\xami\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#1 D:\xami\yii\framework\web\CController.php(287): ApiController->runAction()
+#2 D:\xami\yii\framework\web\CController.php(266): ApiController->runActionWithFilters()
+#3 D:\xami\yii\framework\web\CWebApplication.php(276): ApiController->run()
+#4 D:\xami\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#5 D:\xami\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 D:\xami\yii\web-api\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=api/do&sid=5006
+in D:\xami\yii\web-api\protected\controllers\ApiController.php (66)
+in D:\xami\yii\web-api\index.php (13)
+2012/01/09 08:16:32 [error] [php] preg_split() [<a href='function.preg-split'>function.preg-split</a>]: Compilation failed: PCRE does not support \L, \l, \N{name}, \U, or \u at offset 3 (D:\xami\yii\web-api\protected\controllers\ApiController.php:66)
+Stack trace:
+#0 D:\xami\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#1 D:\xami\yii\framework\web\CController.php(287): ApiController->runAction()
+#2 D:\xami\yii\framework\web\CController.php(266): ApiController->runActionWithFilters()
+#3 D:\xami\yii\framework\web\CWebApplication.php(276): ApiController->run()
+#4 D:\xami\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#5 D:\xami\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 D:\xami\yii\web-api\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=api/do&sid=5006
+in D:\xami\yii\web-api\protected\controllers\ApiController.php (66)
+in D:\xami\yii\web-api\index.php (13)
+2012/01/09 08:16:48 [error] [exception.CException] exception 'CException' with message 'æ­¤é¡µé¢ä¸å­˜åœ¨' in D:\xami\yii\web-api\protected\controllers\ApiController.php:52
+Stack trace:
+#0 D:\xami\yii\framework\web\actions\CInlineAction.php(50): ApiController->actionDo()
+#1 D:\xami\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#2 D:\xami\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#3 D:\xami\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#4 D:\xami\yii\framework\web\CWebApplication.php(276): CController->run('do')
+#5 D:\xami\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('api/do')
+#6 D:\xami\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#7 D:\xami\yii\web-api\index.php(13): CApplication->run()
+#8 {main}
+REQUEST_URI=/index.php?r=api/do&sid=500%A3%B7
+---
+2012/01/09 08:16:53 [error] [exception.CException] exception 'CException' with message 'æ­¤é¡µé¢ä¸å­˜åœ¨' in D:\xami\yii\web-api\protected\controllers\ApiController.php:52
+Stack trace:
+#0 D:\xami\yii\framework\web\actions\CInlineAction.php(50): ApiController->actionDo()
+#1 D:\xami\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#2 D:\xami\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#3 D:\xami\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#4 D:\xami\yii\framework\web\CWebApplication.php(276): CController->run('do')
+#5 D:\xami\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('api/do')
+#6 D:\xami\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#7 D:\xami\yii\web-api\index.php(13): CApplication->run()
+#8 {main}
+REQUEST_URI=/index.php?r=api/do&sid=500%A3%B8
+---
+2012/01/09 08:17:03 [error] [exception.CException] exception 'CException' with message 'æ­¤é¡µé¢ä¸å­˜åœ¨' in D:\xami\yii\web-api\protected\controllers\ApiController.php:52
+Stack trace:
+#0 D:\xami\yii\framework\web\actions\CInlineAction.php(50): ApiController->actionDo()
+#1 D:\xami\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#2 D:\xami\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#3 D:\xami\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#4 D:\xami\yii\framework\web\CWebApplication.php(276): CController->run('do')
+#5 D:\xami\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('api/do')
+#6 D:\xami\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#7 D:\xami\yii\web-api\index.php(13): CApplication->run()
+#8 {main}
+REQUEST_URI=/index.php?r=api/do&sid=5008
+---
+2012/01/09 08:17:46 [error] [php] preg_split() [<a href='function.preg-split'>function.preg-split</a>]: Compilation failed: PCRE does not support \L, \l, \N{name}, \U, or \u at offset 2 (D:\xami\yii\web-api\protected\controllers\ApiController.php:66)
+Stack trace:
+#0 D:\xami\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#1 D:\xami\yii\framework\web\CController.php(287): ApiController->runAction()
+#2 D:\xami\yii\framework\web\CController.php(266): ApiController->runActionWithFilters()
+#3 D:\xami\yii\framework\web\CWebApplication.php(276): ApiController->run()
+#4 D:\xami\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#5 D:\xami\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 D:\xami\yii\web-api\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=api/do&sid=5009
+in D:\xami\yii\web-api\protected\controllers\ApiController.php (66)
+in D:\xami\yii\web-api\index.php (13)
+2012/01/09 08:17:52 [error] [php] preg_split() [<a href='function.preg-split'>function.preg-split</a>]: Compilation failed: PCRE does not support \L, \l, \N{name}, \U, or \u at offset 3 (D:\xami\yii\web-api\protected\controllers\ApiController.php:66)
+Stack trace:
+#0 D:\xami\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#1 D:\xami\yii\framework\web\CController.php(287): ApiController->runAction()
+#2 D:\xami\yii\framework\web\CController.php(266): ApiController->runActionWithFilters()
+#3 D:\xami\yii\framework\web\CWebApplication.php(276): ApiController->run()
+#4 D:\xami\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#5 D:\xami\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 D:\xami\yii\web-api\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=api/do&sid=5009
+in D:\xami\yii\web-api\protected\controllers\ApiController.php (66)
+in D:\xami\yii\web-api\index.php (13)
+2012/01/09 08:20:57 [error] [php] preg_split() [<a href='function.preg-split'>function.preg-split</a>]: Compilation failed: character value in \x{...} sequence is too large at offset 8 (D:\xami\yii\web-api\protected\controllers\ApiController.php:67)
+Stack trace:
+#0 D:\xami\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#1 D:\xami\yii\framework\web\CController.php(287): ApiController->runAction()
+#2 D:\xami\yii\framework\web\CController.php(266): ApiController->runActionWithFilters()
+#3 D:\xami\yii\framework\web\CWebApplication.php(276): ApiController->run()
+#4 D:\xami\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#5 D:\xami\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 D:\xami\yii\web-api\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=api/do&sid=5009
+in D:\xami\yii\web-api\protected\controllers\ApiController.php (67)
+in D:\xami\yii\web-api\index.php (13)
+2012/01/09 08:21:40 [error] [php] preg_split() [<a href='function.preg-split'>function.preg-split</a>]: Compilation failed: PCRE does not support \L, \l, \N{name}, \U, or \u at offset 2 (D:\xami\yii\web-api\protected\controllers\ApiController.php:67)
+Stack trace:
+#0 D:\xami\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#1 D:\xami\yii\framework\web\CController.php(287): ApiController->runAction()
+#2 D:\xami\yii\framework\web\CController.php(266): ApiController->runActionWithFilters()
+#3 D:\xami\yii\framework\web\CWebApplication.php(276): ApiController->run()
+#4 D:\xami\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#5 D:\xami\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 D:\xami\yii\web-api\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=api/do&sid=5009
+in D:\xami\yii\web-api\protected\controllers\ApiController.php (67)
+in D:\xami\yii\web-api\index.php (13)
+2012/01/09 08:29:01 [error] [php] preg_split() [<a href='function.preg-split'>function.preg-split</a>]: Compilation failed: PCRE does not support \L, \l, \N{name}, \U, or \u at offset 2 (D:\xami\yii\web-api\protected\controllers\ApiController.php:69)
+Stack trace:
+#0 D:\xami\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#1 D:\xami\yii\framework\web\CController.php(287): ApiController->runAction()
+#2 D:\xami\yii\framework\web\CController.php(266): ApiController->runActionWithFilters()
+#3 D:\xami\yii\framework\web\CWebApplication.php(276): ApiController->run()
+#4 D:\xami\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#5 D:\xami\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 D:\xami\yii\web-api\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=api/do&sid=5009
+in D:\xami\yii\web-api\protected\controllers\ApiController.php (69)
+in D:\xami\yii\web-api\index.php (13)
+2012/01/09 08:29:12 [error] [php] preg_split() [<a href='function.preg-split'>function.preg-split</a>]: Compilation failed: PCRE does not support \L, \l, \N{name}, \U, or \u at offset 1 (D:\xami\yii\web-api\protected\controllers\ApiController.php:69)
+Stack trace:
+#0 D:\xami\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#1 D:\xami\yii\framework\web\CController.php(287): ApiController->runAction()
+#2 D:\xami\yii\framework\web\CController.php(266): ApiController->runActionWithFilters()
+#3 D:\xami\yii\framework\web\CWebApplication.php(276): ApiController->run()
+#4 D:\xami\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#5 D:\xami\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 D:\xami\yii\web-api\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=api/do&sid=5009
+in D:\xami\yii\web-api\protected\controllers\ApiController.php (69)
+in D:\xami\yii\web-api\index.php (13)
+2012/01/09 08:29:13 [error] [php] preg_split() [<a href='function.preg-split'>function.preg-split</a>]: Compilation failed: PCRE does not support \L, \l, \N{name}, \U, or \u at offset 1 (D:\xami\yii\web-api\protected\controllers\ApiController.php:69)
+Stack trace:
+#0 D:\xami\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#1 D:\xami\yii\framework\web\CController.php(287): ApiController->runAction()
+#2 D:\xami\yii\framework\web\CController.php(266): ApiController->runActionWithFilters()
+#3 D:\xami\yii\framework\web\CWebApplication.php(276): ApiController->run()
+#4 D:\xami\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#5 D:\xami\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 D:\xami\yii\web-api\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=api/do&sid=5009
+in D:\xami\yii\web-api\protected\controllers\ApiController.php (69)
+in D:\xami\yii\web-api\index.php (13)
+2012/01/09 08:30:57 [error] [php] preg_split() [<a href='function.preg-split'>function.preg-split</a>]: Compilation failed: unknown property name after \P or \p at offset 2 (D:\xami\yii\web-api\protected\controllers\ApiController.php:69)
+Stack trace:
+#0 D:\xami\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#1 D:\xami\yii\framework\web\CController.php(287): ApiController->runAction()
+#2 D:\xami\yii\framework\web\CController.php(266): ApiController->runActionWithFilters()
+#3 D:\xami\yii\framework\web\CWebApplication.php(276): ApiController->run()
+#4 D:\xami\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#5 D:\xami\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 D:\xami\yii\web-api\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=api/do&sid=5009
+in D:\xami\yii\web-api\protected\controllers\ApiController.php (69)
+in D:\xami\yii\web-api\index.php (13)
+2012/01/09 13:15:10 [error] [php] preg_split() [<a href='function.preg-split'>function.preg-split</a>]: Compilation failed: unknown property name after \P or \p at offset 2 (D:\xami\yii\web-api\protected\controllers\ApiController.php:69)
+Stack trace:
+#0 D:\xami\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#1 D:\xami\yii\framework\web\CController.php(287): ApiController->runAction()
+#2 D:\xami\yii\framework\web\CController.php(266): ApiController->runActionWithFilters()
+#3 D:\xami\yii\framework\web\CWebApplication.php(276): ApiController->run()
+#4 D:\xami\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#5 D:\xami\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 D:\xami\yii\web-api\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=api/do&sid=5009
+in D:\xami\yii\web-api\protected\controllers\ApiController.php (69)
+in D:\xami\yii\web-api\index.php (13)
+2012/01/09 13:16:38 [error] [php] preg_split() [<a href='function.preg-split'>function.preg-split</a>]: Compilation failed: character value in \x{...} sequence is too large at offset 8 (D:\xami\yii\web-api\protected\controllers\ApiController.php:69)
+Stack trace:
+#0 D:\xami\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#1 D:\xami\yii\framework\web\CController.php(287): ApiController->runAction()
+#2 D:\xami\yii\framework\web\CController.php(266): ApiController->runActionWithFilters()
+#3 D:\xami\yii\framework\web\CWebApplication.php(276): ApiController->run()
+#4 D:\xami\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#5 D:\xami\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 D:\xami\yii\web-api\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=api/do&sid=5009
+in D:\xami\yii\web-api\protected\controllers\ApiController.php (69)
+in D:\xami\yii\web-api\index.php (13)
+2012/01/09 13:18:54 [error] [php] preg_split() [<a href='function.preg-split'>function.preg-split</a>]: Compilation failed: PCRE does not support \L, \l, \N{name}, \U, or \u at offset 2 (D:\xami\yii\web-api\protected\controllers\ApiController.php:69)
+Stack trace:
+#0 D:\xami\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#1 D:\xami\yii\framework\web\CController.php(287): ApiController->runAction()
+#2 D:\xami\yii\framework\web\CController.php(266): ApiController->runActionWithFilters()
+#3 D:\xami\yii\framework\web\CWebApplication.php(276): ApiController->run()
+#4 D:\xami\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#5 D:\xami\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 D:\xami\yii\web-api\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=api/do&sid=5009
+in D:\xami\yii\web-api\protected\controllers\ApiController.php (69)
+in D:\xami\yii\web-api\index.php (13)
+2012/01/09 13:19:12 [error] [php] preg_split() [<a href='function.preg-split'>function.preg-split</a>]: Compilation failed: PCRE does not support \L, \l, \N{name}, \U, or \u at offset 3 (D:\xami\yii\web-api\protected\controllers\ApiController.php:69)
+Stack trace:
+#0 D:\xami\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#1 D:\xami\yii\framework\web\CController.php(287): ApiController->runAction()
+#2 D:\xami\yii\framework\web\CController.php(266): ApiController->runActionWithFilters()
+#3 D:\xami\yii\framework\web\CWebApplication.php(276): ApiController->run()
+#4 D:\xami\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#5 D:\xami\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 D:\xami\yii\web-api\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=api/do&sid=5009
+in D:\xami\yii\web-api\protected\controllers\ApiController.php (69)
+in D:\xami\yii\web-api\index.php (13)
+2012/01/09 13:23:08 [error] [php] explode() expects parameter 1 to be string, array given (D:\xami\yii\web-api\protected\controllers\ApiController.php:69)
+Stack trace:
+#0 D:\xami\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#1 D:\xami\yii\framework\web\CController.php(287): ApiController->runAction()
+#2 D:\xami\yii\framework\web\CController.php(266): ApiController->runActionWithFilters()
+#3 D:\xami\yii\framework\web\CWebApplication.php(276): ApiController->run()
+#4 D:\xami\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#5 D:\xami\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 D:\xami\yii\web-api\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=api/do&sid=5009
+in D:\xami\yii\web-api\protected\controllers\ApiController.php (69)
+in D:\xami\yii\web-api\index.php (13)
+2012/01/09 13:59:46 [error] [php] Missing argument 3 for WpRemote::__construct(), called in D:\xami\yii\web-api\protected\controllers\ApiController.php on line 89 and defined (D:\xami\yii\web-api\protected\components\WpRemote.php:20)
+Stack trace:
+#0 D:\xami\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#1 D:\xami\yii\framework\web\CController.php(287): ApiController->runAction()
+#2 D:\xami\yii\framework\web\CController.php(266): ApiController->runActionWithFilters()
+#3 D:\xami\yii\framework\web\CWebApplication.php(276): ApiController->run()
+#4 D:\xami\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#5 D:\xami\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 D:\xami\yii\web-api\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=api/do&sid=5009
+in D:\xami\yii\web-api\protected\components\WpRemote.php (20)
+in D:\xami\yii\web-api\protected\controllers\ApiController.php (89)
+in D:\xami\yii\web-api\index.php (13)
+2012/01/09 14:00:01 [error] [php] Missing argument 1 for WpRemote::newCate(), called in D:\xami\yii\web-api\protected\controllers\ApiController.php on line 90 and defined (D:\xami\yii\web-api\protected\components\WpRemote.php:39)
+Stack trace:
+#0 D:\xami\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#1 D:\xami\yii\framework\web\CController.php(287): ApiController->runAction()
+#2 D:\xami\yii\framework\web\CController.php(266): ApiController->runActionWithFilters()
+#3 D:\xami\yii\framework\web\CWebApplication.php(276): ApiController->run()
+#4 D:\xami\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#5 D:\xami\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 D:\xami\yii\web-api\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=api/do&sid=5009
+in D:\xami\yii\web-api\protected\components\WpRemote.php (39)
+in D:\xami\yii\web-api\protected\controllers\ApiController.php (90)
+in D:\xami\yii\web-api\index.php (13)
+2012/01/09 14:02:01 [error] [exception.CException] exception 'CException' with message 'Invalid Argument' in D:\xami\yii\web-api\protected\components\WpRemote.php:41
+Stack trace:
+#0 D:\xami\yii\web-api\protected\controllers\ApiController.php(90): WpRemote->newCate()
+#1 D:\xami\yii\framework\web\actions\CInlineAction.php(50): ApiController->actionDo()
+#2 D:\xami\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#3 D:\xami\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#4 D:\xami\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 D:\xami\yii\framework\web\CWebApplication.php(276): CController->run('do')
+#6 D:\xami\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('api/do')
+#7 D:\xami\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#8 D:\xami\yii\web-api\index.php(13): CApplication->run()
+#9 {main}
+REQUEST_URI=/index.php?r=api/do&sid=5009
+---
+2012/01/09 16:41:14 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ORDER BY `sid` DESC limit 1' at line 1. The SQL statement executed was: ORDER BY `sid` DESC limit 1.
+in D:\xami\yii\web-api\protected\extensions\doc360.php (33)
+in D:\xami\yii\web-api\protected\controllers\ApiController.php (53)
+in D:\xami\yii\web-api\index.php (13)
+2012/01/09 16:41:14 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ORDER BY `sid` DESC limit 1' at line 1. The SQL statement executed was: ORDER BY `sid` DESC limit 1' in D:\xami\yii\framework\db\CDbCommand.php:528
+Stack trace:
+#0 D:\xami\yii\framework\db\CDbCommand.php(408): CDbCommand->queryInternal('fetch', Array, Array)
+#1 D:\xami\yii\framework\db\ar\CActiveRecord.php(1494): CDbCommand->queryRow()
+#2 D:\xami\yii\web-api\protected\extensions\doc360.php(33): CActiveRecord->findBySql('ORDER BY `sid` ...')
+#3 D:\xami\yii\web-api\protected\controllers\ApiController.php(53): Doc360->getSid()
+#4 D:\xami\yii\framework\web\actions\CInlineAction.php(50): ApiController->actionDo()
+#5 D:\xami\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#6 D:\xami\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#7 D:\xami\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\xami\yii\framework\web\CWebApplication.php(276): CController->run('do')
+#9 D:\xami\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('api/do')
+#10 D:\xami\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 D:\xami\yii\web-api\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/index.php?r=api/do&id=50097&u=xami&p=555aaa&dm=wp
+---
+2012/01/09 17:20:27 [error] [exception.CException] exception 'CException' with message 'æ­¤é¡µé¢ä¸å­˜åœ¨' in D:\xami\yii\web-api\protected\extensions\doc360.php:62
+Stack trace:
+#0 D:\xami\yii\web-api\protected\controllers\ApiController.php(55): Doc360->Post2Wp(1201, 'wp', 'xami', '555aaa')
+#1 D:\xami\yii\framework\web\actions\CInlineAction.php(50): ApiController->actionDo()
+#2 D:\xami\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#3 D:\xami\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#4 D:\xami\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 D:\xami\yii\framework\web\CWebApplication.php(276): CController->run('do')
+#6 D:\xami\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('api/do')
+#7 D:\xami\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#8 D:\xami\yii\web-api\index.php(13): CApplication->run()
+#9 {main}
+REQUEST_URI=/index.php?r=api/do&u=xami&p=555aaa&dm=wp
+---
+2012/01/09 17:23:16 [error] [exception.CException] exception 'CException' with message 'æ­¤é¡µé¢ä¸å­˜åœ¨' in D:\xami\yii\web-api\protected\extensions\doc360.php:62
+Stack trace:
+#0 D:\xami\yii\web-api\protected\controllers\ApiController.php(55): Doc360->Post2Wp(1201, 'wp', 'xami', '555aaa')
+#1 D:\xami\yii\framework\web\actions\CInlineAction.php(50): ApiController->actionDo()
+#2 D:\xami\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#3 D:\xami\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#4 D:\xami\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 D:\xami\yii\framework\web\CWebApplication.php(276): CController->run('do')
+#6 D:\xami\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('api/do')
+#7 D:\xami\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#8 D:\xami\yii\web-api\index.php(13): CApplication->run()
+#9 {main}
+REQUEST_URI=/index.php?r=api/do&u=xami&p=555aaa&dm=wp
+---
+2012/01/09 17:24:06 [error] [exception.CException] exception 'CException' with message 'æ­¤é¡µé¢ä¸å­˜åœ¨' in D:\xami\yii\web-api\protected\extensions\doc360.php:62
+Stack trace:
+#0 D:\xami\yii\web-api\protected\controllers\ApiController.php(55): Doc360->Post2Wp(1202, 'wp', 'xami', '555aaa')
+#1 D:\xami\yii\framework\web\actions\CInlineAction.php(50): ApiController->actionDo()
+#2 D:\xami\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#3 D:\xami\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#4 D:\xami\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 D:\xami\yii\framework\web\CWebApplication.php(276): CController->run('do')
+#6 D:\xami\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('api/do')
+#7 D:\xami\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#8 D:\xami\yii\web-api\index.php(13): CApplication->run()
+#9 {main}
+REQUEST_URI=/index.php?r=api/do&u=xami&p=555aaa&dm=wp
+---
+2012/01/09 17:31:22 [error] [exception.CException] exception 'CException' with message 'é”™è¯¯çš„ç”¨æˆ·åå’Œå¯†ç ã€‚' in D:\xami\yii\web-api\protected\components\WpRemote.php:51
+Stack trace:
+#0 D:\xami\yii\web-api\protected\extensions\doc360.php(92): WpRemote->getCate('??????')
+#1 D:\xami\yii\web-api\protected\controllers\ApiController.php(55): Doc360->Post2Wp(1205, 'wp', 'xami', '555axaa')
+#2 D:\xami\yii\framework\web\actions\CInlineAction.php(50): ApiController->actionDo()
+#3 D:\xami\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 D:\xami\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 D:\xami\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 D:\xami\yii\framework\web\CWebApplication.php(276): CController->run('do')
+#7 D:\xami\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('api/do')
+#8 D:\xami\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 D:\xami\yii\web-api\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=api/do&u=xami&p=555axaa&dm=wp
+---
