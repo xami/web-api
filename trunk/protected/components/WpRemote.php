@@ -26,7 +26,7 @@ class WpRemote
 
         $this->wpURL='http://'.$domain.'/xmlrpc.php';
         $this->ixrPath=Yii::getPathOfAlias(
-            'application.extensions.wordpress.wp-includes'
+            'application.extensions'
         ).DIRECTORY_SEPARATOR.'class-IXR.php';
         include_once($this->ixrPath);
         $this->client = new IXR_Client($this->wpURL);
