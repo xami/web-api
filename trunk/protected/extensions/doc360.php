@@ -146,7 +146,7 @@ class Doc360 extends CApplicationComponent{
             }else{
                 $crontab->status=-1;
                 $crontab->msg="发布失败: $title | SID :$sid";
-                $crontab->error=serialize(array('pid'=>$pid));
+                $crontab->error=serialize(array('pid'=>$pid,'sid'=>$sid));
                 $crontab->pid=0;
                 $crontab->save();
                 throw new CException('发布帖子失败');

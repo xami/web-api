@@ -36,8 +36,11 @@ class WpRemote
     {
         if(!is_array($content)) throw new CException('Invalid Argument');
 
-        if(!$this->client->query('metaWeblog.newPost','',$this->uname,$this->upass,$content,true))
-            throw new CException($this->client->getErrorMessage());
+        if(!$this->client->query('metaWeblog.newPost','',$this->uname,$this->upass,$content,true)){
+            //            throw new CException($this->client->getErrorMessage());
+            return false;
+        }
+
 
         $this->postID = $this->client->getResponse();
         return $this->postID;
