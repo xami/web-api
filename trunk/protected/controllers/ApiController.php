@@ -2,10 +2,8 @@
 
 class ApiController extends Controller
 {
-	public function actionIndex()
+	public function actionTest()
 	{
-        die;
-//		$this->render('index');
         $src=Yii::app()->doc360->getDocSrc(87308);
 
         $o = Tools::OZCurl($src, 600, false);
@@ -91,12 +89,27 @@ class ApiController extends Controller
 	*/
 
     public function actionA(){
+        $ad1=Yii::app()->params['ad1'];
+        $ad2=Yii::app()->params['ad2'];
+        $ad3=Yii::app()->params['ad3'];
+
         $href=MCrypy::decrypt(rawurldecode(Yii::app()->request->getParam('href', '')), Yii::app()->params['mcpass'], 128);
+        if(empty($href) || !Tools::is_url($href)){
+            echo '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>链接失效</title>
+</head>
+<body>
+<div style="position:inherit;width:720px;margin-left: auto;margin-right: auto;text-align:left;">
+'.$ad1.$ad2.$ad1.$ad2.$ad1.$ad2.'
+</div>
+</body>
+</html>';die;
+        }
         $html=Tools::getLink($href);
         if(empty($html)){
-            $ad1=Yii::app()->params['ad1'];
-            $ad2=Yii::app()->params['ad2'];
-            $ad3=Yii::app()->params['ad3'];
             $adc='<div style="top:0;margin-left: auto;margin-right: auto;text-align:center">'.$ad1.$ad2.'</div>';
 
             echo '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
