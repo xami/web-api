@@ -112,7 +112,7 @@ return array(
 	'params'=>array(
 		// this is used in contact page
         'adminEmail'=>'admin@yardown.com',
-        'host'=>'api.yardown.com',
+        'host'=>$_SERVER['SERVER_NAME'],
 		'ad1'=>'
 <script type="text/javascript"><!--
 google_ad_client = "ca-pub-4726192443658314";
