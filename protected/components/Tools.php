@@ -229,6 +229,97 @@ class Tools
         return $matches[1].$matches[2].'http://'.Yii::app()->params['host'].'/api/img?src='.urlencode($matches[3]).$matches[4].$matches[5].$matches[6].$matches[7];
 	}
 
+    public static function getImg($src){
+        if(empty($src)){
+            return false;
+        }
+        $o = Tools::OZCurl($src, 3600*24*7, false);
+        if($o!=false && isset($o['Result']) && !empty($o['Result'])){
+            return $o;
+        }
+        return false;
+    }
+
+    public static function formatHtml($html){
+        if(empty($html)){
+            return false;
+        }
+
+        include_once(
+            Yii::getPathOfAlias(
+                'application.extensions.simple_html_dom'
+            ).DIRECTORY_SEPARATOR.'simple_html_dom.php'
+        );
+        $html_obj = str_get_html($html);
+
+        //格式化图片地址
+        $count=0;
+        $count=count($html_obj->find('img'));
+        for($i=0;$i<$count;$i++){
+            $html_obj->find('img',$i)->src='http://'.Yii::app()->params['host'].YII::app()->createUrl('api/img',array(
+                'src'=>base64_encode(trim($html_obj->find('img',$i)->src))
+            ));
+            $html_obj->find('img',$i)->alt=strtoupper($_SERVER['SERVER_NAME']).'整理';
+        }
+
+        //格式化链接地址
+        $count=0;
+        $count=count($html_obj->find('a'));
+        for($i=0;$i<$count;$i++){
+            $html_obj->find('a',$i)->href='http://'.Yii::app()->params['host'].YII::app()->createUrl('api/a',array(
+                'href'=>base64_encode(trim($html_obj->find('a',$i)->href))
+            ));
+            $html_obj->find('a',$i)->title=$html_obj->find('a',$i)->plaintext;
+        }
+
+        return $html_obj->save();
+    }
+
+    public static function getLink($href){
+        $c=Tools::OZCurl($href, $expire=3600);
+
+        if(!empty($c['Info']['content_type']))
+            header('Content-Type: '.$c['Info']['content_type']);
+        if($c['Info']['http_code']==200){
+            $search = array (
+                "'<script[^>]*?>.*?</script>'si",  // 去掉 javascript
+                "'([\r\n])[\s]+'"                   // 去掉空白字符
+            );
+            $replace = array ("", "\\1");
+            $html = preg_replace($search, $replace, $c['Result']);
+
+            include_once(
+                Yii::getPathOfAlias(
+                    'application.extensions.simple_html_dom'
+                ).DIRECTORY_SEPARATOR.'simple_html_dom.php'
+            );
+            $ad1=Yii::app()->params['ad1'];
+            $ad2=Yii::app()->params['ad2'];
+            $ad3=Yii::app()->params['ad3'];
+            $html_obj = str_get_html($html);
+            $html_obj->find('body', 0)->innertext= $ad1.'<div style="float:left;">'.$ad3.'</div>'.
+                $html_obj->find('body', 0)->innertext.$ad1.$ad2.$ad2;
+            return $html_obj->save();
+        }else{
+            return false;
+        }
+    }
+
+    public static function createWords($words = 128)
+    {
+        $seperate = array("，", "。", "！", "？", "；");
+        $strings = '';
+        for ($i=0; $i<$words; $i++)
+        {
+            $strings .= iconv('UTF-16', 'UTF-8', chr(mt_rand(0x00, 0xA5)).chr(mt_rand(0x4E, 0x9F)));
+            if (fmod($i, 18) > mt_rand(10, 20))
+            {
+                $strings .= $seperate[mt_rand(0, 4)];
+            }
+        }
+        return $strings;
+    }
+
     public static function subString_UTF8($str, $start, $lenth)
     {
         $len = strlen($str);

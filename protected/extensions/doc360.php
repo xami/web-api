@@ -10,7 +10,7 @@
 class Doc360 extends CApplicationComponent{
     protected $_src;
 
-    protected function  getDocSrc($sid){
+    public function  getDocSrc($sid){
         $sid=intval($sid);
 
         if(empty($sid)) return false;
