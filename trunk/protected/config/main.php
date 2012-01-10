@@ -11,6 +11,7 @@ function pd($data=array(), $end='', $stop=true)
     echo $end;
     if($stop) die;
 }
+
 // uncomment the following to define a path alias
 // Yii::setPathOfAlias('local','path/to/local-folder');
 
@@ -18,7 +19,8 @@ function pd($data=array(), $end='', $stop=true)
 // CWebApplication properties can be configured here.
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'My Web Application',
+	'name'=>'YarDown API',
+    'language'=>'zh_cn',
 
 	// preloading 'log' component
 	'preload'=>array('log'),
@@ -109,6 +111,46 @@ return array(
 	// using Yii::app()->params['paramName']
 	'params'=>array(
 		// this is used in contact page
-		'adminEmail'=>'webmaster@example.com',
+        'adminEmail'=>'admin@yardown.com',
+        'host'=>'api.yardown.com',
+		'ad1'=>'
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-4726192443658314";
+/* 728x90-首页横幅 */
+google_ad_slot = "1018549157";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+',
+    'ad2'=>'
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-4726192443658314";
+/* 728x15-链接单元 */
+google_ad_slot = "4456137852";
+google_ad_width = 728;
+google_ad_height = 15;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+',
+        'ad3'=>'
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-4726192443658314";
+/* 160x600-宽幅摩天大楼 */
+google_ad_slot = "0203809730";
+google_ad_width = 160;
+google_ad_height = 600;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+'
 	),
 );
