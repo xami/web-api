@@ -79,16 +79,6 @@ class Doc360 extends CApplicationComponent{
         );
         $html = str_get_html($o['Result']);
 
-        $share_count=$html->find('a[href=javascript:ShowSaverUser();]', 0)->plaintext;
-        if(empty($share_count) || $share_count<10){
-            $crontab->status=0;
-            $crontab->msg='转藏次数太少:'.$share_count.'次';
-            $crontab->error='500';
-            $crontab->pid=0;
-            $crontab->save();
-            throw new CException('转藏次数太少:'.$share_count.'次');
-        }
-
         $description=Tools::subString_UTF8(trim($html->find('span[id=articlecontent]', 0)->plaintext),0,200);
         $search = array ("'<script[^>]*?>.*?</script>'si",  // 去掉 javascript
             "'<[\/\!]*?[^<>]*?>'si",           // 去掉 HTML 标记
