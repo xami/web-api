@@ -35,7 +35,7 @@ class WpRemote
     public function postContent($content)
     {
         if(!is_array($content)) throw new CException('Invalid Argument');
-
+        pd($content);
         if(!$this->client->query('metaWeblog.newPost','',$this->uname,$this->upass,$content,true))
             throw new CException($this->client->getErrorMessage());
 
