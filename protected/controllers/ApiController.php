@@ -91,7 +91,7 @@ class ApiController extends Controller
 	*/
 
     public function actionA(){
-        $href=trim(rawurldecode(base64_decode(Yii::app()->request->getParam('href', ''))));
+        $href=MCrypy::decrypt(rawurldecode(Yii::app()->request->getParam('href', '')), Yii::app()->params['mcpass'], 128);
         $html=Tools::getLink($href);
         if(empty($html)){
             $ad1=Yii::app()->params['ad1'];
@@ -103,12 +103,12 @@ class ApiController extends Controller
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>'.Tools::createWords(mt_rand(2, 6)).'</title>
+    <title>链接跳转</title>
 </head>
 <body>
 <div style="float:left;">'.$ad3.'</div>
 <div style="position:inherit;width:720px;margin-left: auto;margin-right: auto;text-align:left;">
-'.$ad1.'&nbsp;&nbsp;'.Tools::createWords(mt_rand(20, 200)).'&nbsp;&nbsp;'.$ad2.Tools::createWords(mt_rand(20, 200)).$ad2.'
+'.$ad1.'&nbsp;&nbsp;目标链接，非本站链接<h1>'.CHtml::link('点此跳转', $href).'</h1>&nbsp;&nbsp;'.$ad2.$ad2.'
 </div>
 <div style="position:absolute;right:10px;top:10px;">'.$ad3.'
 </div>
@@ -121,7 +121,7 @@ class ApiController extends Controller
     }
 
     public function actionImg(){
-        $src=trim(rawurldecode(base64_decode(Yii::app()->request->getParam('src', ''))));
+        $src=MCrypy::decrypt(rawurldecode(Yii::app()->request->getParam('src', '')), Yii::app()->params['mcpass'], 128);
         $r=Tools::getImg($src);
 //        pd($r);
         if(!empty($r)

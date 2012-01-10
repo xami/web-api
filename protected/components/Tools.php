@@ -257,7 +257,7 @@ class Tools
         $count=count($html_obj->find('img'));
         for($i=0;$i<$count;$i++){
             $html_obj->find('img',$i)->src='http://'.Yii::app()->params['host'].YII::app()->createUrl('api/img',array(
-                'src'=>base64_encode(trim($html_obj->find('img',$i)->src))
+                'src'=>rawurlencode(MCrypy::encrypt(trim($html_obj->find('img',$i)->src), Yii::app()->params['mcpass'], 128))
             ));
             $html_obj->find('img',$i)->alt=strtoupper($_SERVER['SERVER_NAME']).'整理';
         }
@@ -267,7 +267,7 @@ class Tools
         $count=count($html_obj->find('a'));
         for($i=0;$i<$count;$i++){
             $html_obj->find('a',$i)->href='http://'.Yii::app()->params['host'].YII::app()->createUrl('api/a',array(
-                'href'=>base64_encode(trim($html_obj->find('a',$i)->href))
+                'href'=>rawurlencode(MCrypy::encrypt(trim($html_obj->find('a',$i)->href), Yii::app()->params['mcpass'], 128))
             ));
             $html_obj->find('a',$i)->title=$html_obj->find('a',$i)->plaintext;
         }
