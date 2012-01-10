@@ -109,7 +109,7 @@ class Doc360 extends CApplicationComponent{
             "chr(\\1)");
         $description = preg_replace ($search, $replace, $description);
 
-        $body=trim($html->find('span[id=articlecontent]', 0)->innertext);
+        $body=trim(Tools::formatHtml($html->find('span[id=articlecontent]', 0)->innertext));
         $title=trim($html->find('title', 0)->plaintext);
 
         $keywords=preg_split('/[+-,\/\\\s?;.\[\]\<\>]+/', $title, -1, PREG_SPLIT_NO_EMPTY);
