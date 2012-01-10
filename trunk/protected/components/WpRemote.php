@@ -50,10 +50,12 @@ class WpRemote
         if(!$this->client->query('metaWeblog.getCategories',0 ,$this->uname,$this->upass))
             throw new CException($this->client->getErrorMessage());
         $cateArray = $this->client->getResponse();
-        foreach($cateArray as $catOne){
-            if($catOne['categoryName']==$categoryName) {
-                $this->cateID = $catOne['categoryId'];
-                return $this->cateID;
+        if(!empty($cateArray)){
+            foreach($cateArray as $catOne){
+                if($catOne['categoryName']==$categoryName) {
+                    $this->cateID = $catOne['categoryId'];
+                    return $this->cateID;
+                }
             }
         }
 
