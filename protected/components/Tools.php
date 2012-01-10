@@ -297,7 +297,7 @@ class Tools
             $ad2=Yii::app()->params['ad2'];
             $ad3=Yii::app()->params['ad3'];
             $html_obj = str_get_html($html);
-            $html_obj->find('body', 0)->innertext= $ad1.'<div style="float:left;">'.$ad3.'</div>'.
+            $html_obj->find('body', 0)->innertext= $ad1.'<div style="float:right;">'.$ad3.'</div>'.
                 $html_obj->find('body', 0)->innertext.$ad1.$ad2.$ad2;
             return $html_obj->save();
         }else{
