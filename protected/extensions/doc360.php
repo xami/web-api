@@ -86,7 +86,7 @@ class Doc360 extends CApplicationComponent{
             $crontab->error='500';
             $crontab->pid=0;
             $crontab->save();
-            throw new CException('转藏次数太少');
+            throw new CException('转藏次数太少:'.$share_count.'次');
         }
 
         $description=Tools::subString_UTF8(trim($html->find('span[id=articlecontent]', 0)->plaintext),0,200);
