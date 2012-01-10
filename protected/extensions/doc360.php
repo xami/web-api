@@ -82,6 +82,7 @@ class Doc360 extends CApplicationComponent{
         $search = array ("'<script[^>]*?>.*?</script>'si",  // 去掉 javascript
             "'<[\/\!]*?[^<>]*?>'si",           // 去掉 HTML 标记
             "'([\r\n])[\s]+'",                 // 去掉空白字符
+            "'\/'",
             "'&(quot|#34);'i",                 // 替换 HTML 实体
             "'&(amp|#38);'i",
             "'&(lt|#60);'i",
@@ -95,6 +96,7 @@ class Doc360 extends CApplicationComponent{
         $replace = array ("",
             "",
             "\\1",
+            "",
             "\"",
             "&",
             "<",
