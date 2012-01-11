@@ -152,6 +152,19 @@ google_ad_height = 600;
 src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 </script>
 ',
+        'ad4'=>'
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-4726192443658314";
+/* 336x280-大矩形 */
+google_ad_slot = "3354931463";
+google_ad_width = 336;
+google_ad_height = 280;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+',
         'mcpass'=>'u6WeRF3smRBHZjr4'
 	),
 );
