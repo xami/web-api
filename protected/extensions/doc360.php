@@ -110,7 +110,8 @@ class Doc360 extends CApplicationComponent{
             "chr(\\1)");
         $description = preg_replace ($search, $replace, $description);
 
-        $body=trim('<div style="float:right;">'.Yii::app()->params['ad3'].'</div>'.Tools::formatHtml($html->find('span[id=articlecontent]', 0)->innertext));
+        $adName='ad'.mt_rand(3,4);
+        $body=trim('<div style="float:right;">'.Yii::app()->params[$adName].'</div>'.Tools::formatHtml($html->find('span[id=articlecontent]', 0)->innertext));
         $title=trim($html->find('title', 0)->plaintext);
 
         $keywords=preg_split('/[+-,\/\\\s?;.\[\]\<\>]+/', $title, -1, PREG_SPLIT_NO_EMPTY);
