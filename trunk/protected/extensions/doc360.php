@@ -58,6 +58,7 @@ class Doc360 extends CApplicationComponent{
             $crontab->msg='此页面不存在';
             $crontab->error='404';
             $crontab->pid=0;
+            $crontab->sid=$crontab->sid+1;
             $crontab->save();
             throw new CException('此页面不存在');
         }
@@ -68,6 +69,7 @@ class Doc360 extends CApplicationComponent{
             $crontab->msg='页面为空';
             $crontab->error='500';
             $crontab->pid=0;
+            $crontab->sid=$crontab->sid+1;
             $crontab->save();
             throw new CException('页面为空');
         }
@@ -149,6 +151,7 @@ class Doc360 extends CApplicationComponent{
                 $crontab->status=-1;
                 $crontab->msg="发布失败: $title | SID :$sid";
                 $crontab->error=serialize(array('pid'=>$pid,'sid'=>$sid));
+                $crontab->sid=$crontab->sid+1;
                 $crontab->pid=0;
                 $crontab->save();
                 throw new CException('发布帖子失败');
@@ -157,6 +160,7 @@ class Doc360 extends CApplicationComponent{
             $crontab->status='505';
             $crontab->msg='创建分类失败';
             $crontab->error='';
+            $crontab->sid=$crontab->sid+1;
             $crontab->save();
             throw new CException('创建分类失败');
         }

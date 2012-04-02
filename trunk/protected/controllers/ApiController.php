@@ -46,6 +46,21 @@ class ApiController extends Controller
 
     }
 
+    public function actionXuk()
+    {
+        //        $sid=intval(Yii::app()->request->getParam('id', 0));
+        $sid=YII::app()->doc360->getSid();
+        $domain=trim(Yii::app()->request->getParam('dm', ''));
+        $user=trim(Yii::app()->request->getParam('u', ''));
+        $pass=trim(Yii::app()->request->getParam('p', ''));
+
+        if(!YII::app()->doc360->Post2Wp($sid, $domain, $user, $pass)){
+            throw new CHttpException(500, 'false');
+        }else{
+            echo 'true';
+        }
+    }
+
     public function actionDo()
     {
 //        $sid=intval(Yii::app()->request->getParam('id', 0));
