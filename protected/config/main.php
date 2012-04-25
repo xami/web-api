@@ -19,7 +19,7 @@ function pd($data=array(), $end='', $stop=true)
 // CWebApplication properties can be configured here.
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'YarDown API',
+	'name'=>'API',
     'language'=>'zh_cn',
 
 	// preloading 'log' component
@@ -99,11 +99,18 @@ return array(
                 ),
             ),
         ),
+        'fcache'=>array(
+            'class'=>'CFileCache',
+            'cacheFileSuffix'=>'.php',
+        ),
         'CURL' =>array(
             'class' => 'application.extensions.Curl',
         ),
         'doc360' =>array(
             'class' => 'application.extensions.doc360',
+        ),
+        'xuk' =>array(
+            'class' => 'application.extensions.xuk',
         ),
 	),
 

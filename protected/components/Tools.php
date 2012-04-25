@@ -13,13 +13,13 @@ class Tools
 		$c = null;
 		$key = md5($src);
 		$c=Yii::app()->cache->get($key);
-		
+
 		if(empty($c)){
 			//Run curl
             Yii::app()->CURL->run(array(CURLOPT_REFERER => $src));
             Yii::app()->CURL->setUrl($src);
             Yii::app()->CURL->exec();
-			
+
 			if(Yii::app()->CURL->isError()) {
 				// Error
 //				var_dump(Yii::app()->CURL->getErrNo());
@@ -35,12 +35,13 @@ class Tools
 					'Result'=>Yii::app()->CURL->getResult(),
 				);
 			}
+
             //小于3M
             if(sizeof($c)<1024*1024*3){
                 Yii::app()->cache->set($key, $c, $expire);
             }
 		}
-		
+
 		if($show==true){
 			if(!empty($c['Info']['content_type']))
 				header('Content-Type: '.$c['Info']['content_type']);
