@@ -107,6 +107,8 @@ EOD;
 
 
     public function NewGallery($name){
+        if(count($name)==1 && !is_array($name))
+            $name=array($name);
         foreach($name as $one){
             $list[]=new IXR_Base64($one);
         }
@@ -117,6 +119,8 @@ EOD;
     }
 
     public function addImages($galleryID, $imageslist, $description){
+        if(count($imageslist)==1 && !is_array($imageslist))
+            $imageslist=array($imageslist);
         foreach($imageslist as $image){
             $images[]=new IXR_Base64($image);
         }
@@ -154,6 +158,8 @@ EOD;
      *
      */
     public function newPost($content_struct){
+        if(count($content_struct)==1 && !is_array($content_struct))
+            $content_struct=array($content_struct);
         foreach($content_struct as $one){
             $list[]=new IXR_Base64($one);
         }
@@ -178,6 +184,8 @@ EOD;
      *  原生的,不满足要求
      */
     public function newCategory($category){
+        if(count($category)==1 && !is_array($category))
+            $category=array($category);
         foreach($category as $one){
             $list[]=new IXR_Base64($one);
         }
