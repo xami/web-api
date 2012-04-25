@@ -106,12 +106,9 @@ class ApiController extends Controller
     public function actionXuk()
     {
         ini_set('max_execution_time', 3600);
-        $user='admin';
-        $pass='';
-
-        include_once(
-            Yii::getPathOfAlias('application.extensions').DIRECTORY_SEPARATOR.'xuk.php'
-        );
+        $user=YII::app()->params['wp_user'];
+        $pass=YII::app()->params['wp_pass'];
+        $domain=YII::app()->params['wp_domain'];
 
         //get the page number
         $page=intval(Yii::app()->request->getParam('p', 4));
@@ -165,19 +162,6 @@ class ApiController extends Controller
 
         //轮循：取得单页图片链接，发表帖子
         foreach($all as $item){
-            // 创建相册
-            $gid=Yii::app()->xuk->NewGallery('wp', $user, $pass, $item['path']);
-            if(empty($gid)){
-                //throw new CException('新建相册失败', 5);
-                IXR_Server::output(WpRemote::IXR_Error(500, '新建相册失败'));
-            }
-
-            // 添加图片比较耗时的操作
-            if(empty($item['images'])){
-                IXR_Server::output(WpRemote::IXR_Error(500, '源相册列表为空'));
-            }
-            $pids=Yii::app()->xuk->addImages('wp', $user, $pass, $gid, $item['images']);
-
             //发表新帖
             $search = array (
                 "'_'",                  // 去掉下划线
@@ -193,6 +177,20 @@ class ApiController extends Controller
             );
             $name_slug=trim(preg_replace($search, $replace, $item['name']));
 
+            // 创建相册
+            $gid=Yii::app()->xuk->NewGallery($domain, $user, $pass, $item['path']);
+            if(empty($gid)){
+                //throw new CException('新建相册失败', 5);
+                IXR_Server::output(WpRemote::IXR_Error(500, '新建相册失败'));
+            }
+
+            // 添加图片比较耗时的操作
+            if(empty($item['images'])){
+                IXR_Server::output(WpRemote::IXR_Error(500, '源相册列表为空'));
+            }
+            $img_des='lolita.im,'.$name_slug;
+            $pids=Yii::app()->xuk->addImages($domain, $user, $pass, $gid, $item['images'], $img_des);
+
             $key=array('title', 'description', 'wp_slug', 'mt_excerpt', 'mt_keywords', 'mt_text_more',  'categories', 'post_mark');
             $val=array(
                 $item['name'],
@@ -207,7 +205,7 @@ class ApiController extends Controller
             $content_struct=array_combine($key, $val);
 
             //比较曲折,发布帖子
-            $post_ids[]=Yii::app()->xuk->newPost('wp', $user, $pass, $content_struct);
+            $post_ids[]=Yii::app()->xuk->newPost($domain, $user, $pass, $content_struct);
 //            break;
         }
 

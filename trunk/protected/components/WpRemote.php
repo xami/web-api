@@ -116,11 +116,11 @@ EOD;
         return $id;
     }
 
-    public function addImages($galleryID, $imageslist){
+    public function addImages($galleryID, $imageslist, $description){
         foreach($imageslist as $image){
             $images[]=new IXR_Base64($image);
         }
-        if(!$this->client->query('ngg.addImages',0 ,$this->uname, $this->upass, $galleryID, $images))
+        if(!$this->client->query('ngg.addImages',0 ,$this->uname, $this->upass, $galleryID, $images, $description))
             throw new CException($this->client->getErrorMessage());
         $ids = $this->client->getResponse();
         return $ids;
