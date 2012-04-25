@@ -16,9 +16,9 @@ class Xuk extends CApplicationComponent{
         return $gallery_id;
     }
 
-    public function addImages($domain, $user, $pass, $galleryID, $imageslist = array()){
+    public function addImages($domain, $user, $pass, $galleryID, $imageslist = array(), $description){
         $wp = new WpRemote($domain, $user, $pass);
-        $pictures_ids = $wp->addImages($galleryID, $imageslist);
+        $pictures_ids = $wp->addImages($galleryID, $imageslist, $description);
         return $pictures_ids;
     }
 

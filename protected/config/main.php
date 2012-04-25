@@ -119,8 +119,9 @@ return array(
 	'params'=>array(
 		// this is used in contact page
         'adminEmail'=>'',
-        'wpadmin'=>'admin',
-        'wppass'=>'',
+        'wp_domain'=>'',
+        'wp_user'=>'admin',
+        'wp_pass'=>'',
         'host'=>$_SERVER['SERVER_NAME'],
 		'ad1'=>'
 <script type="text/javascript"><!--
