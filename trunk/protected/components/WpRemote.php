@@ -197,7 +197,7 @@ EOD;
 
     // xami 扩展
     public function getCategory($cat_name, $parent=0){
-        if(!$this->client->query('lolita.getCategory',0 ,$this->uname, $this->upass, $cat_name, $parent))
+        if(!$this->client->query('ngg.getCategory',0 ,$this->uname, $this->upass, $cat_name, $parent))
             throw new CException($this->client->getErrorMessage());
         $cid = $this->client->getResponse();
         return $cid;
@@ -205,7 +205,7 @@ EOD;
 
     // xami 扩展
     public function getTag($tag_name){
-        if(!$this->client->query('lolita.getTag',0 ,$this->uname, $this->upass, $tag_name))
+        if(!$this->client->query('ngg.getTag',0 ,$this->uname, $this->upass, $tag_name))
             throw new CException($this->client->getErrorMessage());
         $tid = $this->client->getResponse();
         return $tid;
