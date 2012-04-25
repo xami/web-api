@@ -107,7 +107,7 @@ class ApiController extends Controller
     {
         ini_set('max_execution_time', 3600);
         $user='admin';
-        $pass='555aaa';
+        $pass='';
 
         include_once(
             Yii::getPathOfAlias('application.extensions').DIRECTORY_SEPARATOR.'xuk.php'
