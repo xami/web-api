@@ -118,7 +118,9 @@ return array(
 	// using Yii::app()->params['paramName']
 	'params'=>array(
 		// this is used in contact page
-        'adminEmail'=>'admin@yardown.com',
+        'adminEmail'=>'',
+        'wpadmin'=>'admin',
+        'wppass'=>'',
         'host'=>$_SERVER['SERVER_NAME'],
 		'ad1'=>'
 <script type="text/javascript"><!--
@@ -172,6 +174,6 @@ google_ad_height = 280;
 src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 </script>
 ',
-        'mcpass'=>'u6WeRF3smRBHZjr4'
+
 	),
 );
