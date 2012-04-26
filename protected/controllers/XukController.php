@@ -7,7 +7,7 @@ class XukController extends Controller
         ini_set('max_execution_time', 3600);
 
         //get the page number
-        $page=intval(Yii::app()->request->getParam('p', 4));
+        $page=intval(Yii::app()->request->getParam('p', 1));
         if ($page<1) {
             throw new CException('页号错误', 1);
         }
