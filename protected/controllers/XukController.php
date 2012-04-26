@@ -43,7 +43,7 @@ class XukController extends Controller
             }
             preg_match('/\/([\w\d_]*)\/\d+\(www\.xuk\.ru\)\d{0,3}\.jpg$/i', $file, $cut_key);
             $all[$i]['key']=isset($cut_key[1]) ? $cut_key[1] : '';
-            //            break;
+//                        break;
         }
 
 
@@ -53,6 +53,7 @@ class XukController extends Controller
         }
 
         //轮循：取得单页图片链接，发表帖子
+        $all_pids=array();
         foreach($all as $item){
             //发表新帖
             $search = array (
@@ -82,20 +83,30 @@ class XukController extends Controller
             }
             $img_des='lolita.im,'.$name_slug;
             $pids=Yii::app()->xuk->addImages($gid, $item['images'], $img_des);
+            if(empty($pids)){
+                //throw new CException('新建相册失败', 5);
+                IXR_Server::output(WpRemote::IXR_Error(500, '采集图片失败'));
+            }
 
             // 取得缩略图列表
-            $images_excerpt='';
-            $images_list=Yii::app()->xuk->getImages($gid);
-            if(!empty($images_list)) foreach($images_list as $image){
-                $images_excerpt.= $image['href'];
-            }
-            $images_excerpt=preg_replace('/[\r\n]+/', '', $images_excerpt);
+//            $images_excerpt='';
+//            $images_list=Yii::app()->xuk->getImages($gid);
+//            if(!empty($images_list)) foreach($images_list as $image){
+//                $images_excerpt.= $image['href'];
+//            }
+//            $images_excerpt=preg_replace('/[\r\n]+/', '', $images_excerpt);
+            //取得单张缩略图
+            $images_obj=Yii::app()->xuk->getImage($pids[0]);
+            $images_excerpt=preg_replace('/[\r\n]+/', '', $images_obj['href']);
+
+
+
 
             //比较曲折,发布帖子
             $key=array('title', 'description', 'wp_slug', 'mt_excerpt', 'mt_keywords', 'mt_text_more',  'categories', 'post_mark');
             $val=array(
                 $item['name'],
-                '[nggallery id='.$gid.']',
+                $name_slug,
                 $item['name'],
                 $images_excerpt,
                 array($item['cat'], $name_slug, $item['key'], $name_slug.'.lolita.im'),
@@ -105,12 +116,13 @@ class XukController extends Controller
             );
             $content_struct=array_combine($key, $val);
             $post_ids[]=Yii::app()->xuk->newPost($content_struct);
+            $all_pids=array_merge($all_pids, $pids);
             //            break;
         }
 
         IXR_Server::output(WpRemote::IXR_Error(200,
-            '成功更新'.count($pids).'张图片: '.implode(',',$pids ).
-                '成功发布'.count($post_ids).'个相册: '.implode(',',$post_ids )));
+            '成功更新'.count($pids).'张图片: '.implode(',',$pids ).';     '.
+            '成功发布'.count($post_ids).'个相册: '.implode(',',$post_ids )));
 
     }
 

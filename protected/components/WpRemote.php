@@ -115,6 +115,14 @@ EOD;
         return $images;
     }
 
+    public function getImage($pid){
+        $gid=intval($pid);
+        if(!$this->client->query('ngg.getImage',0 ,$this->uname,$this->upass,$pid))
+            throw new CException($this->client->getErrorMessage());
+        $image = $this->client->getResponse();
+        return $image;
+    }
+
     public function NewGallery($name){
         if(!is_array($name))
             $name=new IXR_Base64($name);
