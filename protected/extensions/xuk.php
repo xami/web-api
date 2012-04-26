@@ -90,11 +90,11 @@ class Xuk extends CApplicationComponent{
         $content_struct['mt_allow_pings']            = true;                //允许ping                                        true
         //Ping 服务地址
         $content_struct['mt_tb_ping_urls']           = array(
-            new IXR_Base64('http://ping.baidu.com/ping/RPC2'),
-            new IXR_Base64('http://blogsearch.google.com/ping/RPC2'),
-            new IXR_Base64('http://www.feedsky.com/api/RPC2'),
-            new IXR_Base64('http://rpc.pingomatic.com/'),
-            new IXR_Base64('http://blog.youdao.com/ping/RPC2')
+            'http://ping.baidu.com/ping/RPC2',
+            'http://blogsearch.google.com/ping/RPC2',
+            'http://www.feedsky.com/api/RPC2',
+            'http://rpc.pingomatic.com/',
+            'http://blog.youdao.com/ping/RPC2'
         );
         $content_struct['date_created_gmt']          = new IXR_Date(time());          //gmt                                           gmmktime()
 //        $content_struct['dateCreated']                = '';                 //                                               ''
