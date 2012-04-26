@@ -121,7 +121,7 @@ return array(
         'adminEmail'=>'admin@lolita.im',
         'wp_domain'=>'wp',
         'wp_user'=>'admin',
-        'wp_pass'=>'555aaa',
+        'wp_pass'=>'',
         'host'=>$_SERVER['SERVER_NAME'],
 		'ad1'=>'
 <script type="text/javascript"><!--
