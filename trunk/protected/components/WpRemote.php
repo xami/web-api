@@ -97,7 +97,7 @@ EOD;
         );
 
         foreach($newCate as $oneCate){
-            $listCate[]=new IXR_Base64($oneCate);
+            $listCate[]=is_array($oneCate) ? $oneCate : new IXR_Base64($oneCate);
         }
         if(!$this->client->query('wp.newCategory', 0,$this->uname, $this->upass, $listCate))
             throw new CException($this->client->getErrorMessage());
@@ -120,7 +120,7 @@ EOD;
             $imageslist=array($imageslist);
         }
         foreach($imageslist as $image){
-            $images[]=new IXR_Base64($image);
+            $images[]=is_array($image) ? $image : new IXR_Base64($image);
         }
         if(!$this->client->query('ngg.addImages',0 ,$this->uname, $this->upass, $galleryID, $images, $description))
             throw new CException($this->client->getErrorMessage());
@@ -159,7 +159,7 @@ EOD;
         if(count($content_struct)==1 && !is_array($content_struct))
             $content_struct=array($content_struct);
         foreach($content_struct as $one){
-            $list[]=new IXR_Base64($one);
+            $list[]=is_array($one) ? $one : new IXR_Base64($one);
         }
         if(!$this->client->query('metaWeblog.newPost',0 ,$this->uname, $this->upass, $list, $publish=true))
             throw new CException($this->client->getErrorMessage());
@@ -185,7 +185,7 @@ EOD;
         if(count($category)==1 && !is_array($category))
             $category=array($category);
         foreach($category as $one){
-            $list[]=new IXR_Base64($one);
+            $list[]=is_array($one) ? $one : new IXR_Base64($one);
         }
         if(!$this->client->query('wp.newCategory',0 ,$this->uname, $this->upass, $list))
             throw new CException($this->client->getErrorMessage());
