@@ -71,8 +71,6 @@ class XukController extends Controller
 
             // 创建相册
             $gid=Yii::app()->xuk->NewGallery($item['path']);
-
-
             if(empty($gid)){
                 //throw new CException('新建相册失败', 5);
                 IXR_Server::output(WpRemote::IXR_Error(500, '新建相册失败'));
@@ -91,7 +89,7 @@ class XukController extends Controller
             if(!empty($images_list)) foreach($images_list as $image){
                 $images_excerpt.= $image['href'];
             }
-            $images_excerpt=preg_replace('/\>[\s]+\</', '', $images_excerpt);
+            $images_excerpt=preg_replace('/[\r\n]+/', '', $images_excerpt);
 
             //比较曲折,发布帖子
             $key=array('title', 'description', 'wp_slug', 'mt_excerpt', 'mt_keywords', 'mt_text_more',  'categories', 'post_mark');
