@@ -170,7 +170,6 @@ EOD;
 //        foreach($content_struct as $one){
 //            $list[]=is_array($one) ? $one : new IXR_Base64($one);
 //        }
-        pr($content_struct);
         if(!$this->client->query('metaWeblog.newPost',0 ,$this->uname, $this->upass, $content_struct, $publish=true))
             throw new CException($this->client->getErrorMessage());
         $post_id = $this->client->getResponse();
