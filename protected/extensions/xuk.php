@@ -13,7 +13,7 @@ class Xuk extends CApplicationComponent{
 
     function __construct(){
         $this->wp = new WpRemote();
-        parent::__construct();
+//        parent::__construct();
     }
 
     public function NewGallery($name){
