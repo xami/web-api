@@ -107,20 +107,18 @@ EOD;
 
 
     public function NewGallery($name){
-        if(count($name)==1 && !is_array($name))
-            $name=array($name);
-        foreach($name as $one){
-            $list[]=new IXR_Base64($one);
-        }
-        if(!$this->client->query('ngg.newGallery',0 ,$this->uname,$this->upass,$list))
+        if(!is_array($name))
+            $name=new IXR_Base64($name);
+        if(!$this->client->query('ngg.newGallery',0 ,$this->uname,$this->upass,$name))
             throw new CException($this->client->getErrorMessage());
         $id = $this->client->getResponse();
         return $id;
     }
 
     public function addImages($galleryID, $imageslist, $description){
-        if(count($imageslist)==1 && !is_array($imageslist))
+        if(count($imageslist)==1 && !is_array($imageslist)){
             $imageslist=array($imageslist);
+        }
         foreach($imageslist as $image){
             $images[]=new IXR_Base64($image);
         }
