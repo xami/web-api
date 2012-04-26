@@ -28,6 +28,11 @@ class Xuk extends CApplicationComponent{
         return $images;
     }
 
+    public function getImage($picture_id){
+        $picture = $this->wp->getImage($picture_id);
+        return $picture;
+    }
+
     public function addImages($galleryID, $imageslist = array(), $description){
         $pictures_ids = $this->wp->addImages($galleryID, $imageslist, $description);
         return $pictures_ids;

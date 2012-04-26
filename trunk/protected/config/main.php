@@ -118,10 +118,10 @@ return array(
 	// using Yii::app()->params['paramName']
 	'params'=>array(
 		// this is used in contact page
-        'adminEmail'=>'',
-        'wp_domain'=>'',
+        'adminEmail'=>'admin@lolita.im',
+        'wp_domain'=>'wp',
         'wp_user'=>'admin',
-        'wp_pass'=>'',
+        'wp_pass'=>'555aaa',
         'host'=>$_SERVER['SERVER_NAME'],
 		'ad1'=>'
 <script type="text/javascript"><!--
