@@ -37,17 +37,14 @@ class XukController extends Controller
             $all[$i]['name']=$out[2][$i];
             $all[$i]['path']=$out[1][$i].'/'.$out[2][$i];
 
+            $all[$i]['images_excerpt']='';
             preg_match_all('/\<a\s+class=([\"\'])xuk_gallery(?1)\s+href=([\"\'])(http:\/\/img\d?\.xuk\.ru\/(.*?\.jpe?g))(?2)\s*\/?\>/i', $html, $images_src);
             foreach($images_src[4] as $file){
                 $all[$i]['images'][]='http://img.lolita.im/'.$file;
+                $all[$i]['images_excerpt'].= CHtml::image('http://img.lolita.im/'.$file, $out[2][$i]);
             }
             preg_match('/\/([\w\d_]*)\/\d+\(www\.xuk\.ru\)\d{0,3}\.jpg$/i', $file, $cut_key);
             $all[$i]['key']=isset($cut_key[1]) ? $cut_key[1] : '';
-            if(!isset($all[$i]['images_excerpt'])){
-                $all[$i]['images_excerpt']='';
-            }else{
-                $all[$i]['images_excerpt'].= CHtml::image('http://img.lolita.im/'.$file, $out[2][$i]);
-            }
             //            break;
         }
 
