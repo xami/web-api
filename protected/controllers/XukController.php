@@ -67,7 +67,7 @@ class XukController extends Controller
                 "",
                 " ",
             );
-            $name_slug=trim(preg_replace($search, $replace, $item['name']));
+            $name_slug=trim(preg_replace($search, $replace, $item['name'])," -_");
 
             // 创建相册
             $gid=Yii::app()->xuk->NewGallery($item['path']);
