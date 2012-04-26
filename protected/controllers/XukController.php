@@ -86,11 +86,11 @@ class XukController extends Controller
             $pids=Yii::app()->xuk->addImages($gid, $item['images'], $img_des);
 
             // 取得缩略图列表
-//            $images_excerpt='';
-//            $images_list=Yii::app()->xuk->getImages($item['path']);
-//            if(!empty($images_list)) foreach($images_list as $image_obj){
-//                $images_excerpt.= CHtml::image($image_obj->thumbURL, $image_obj->alttext);
-//            }
+            $images_excerpt='';
+            $images_list=Yii::app()->xuk->getImages($item['path']);
+            if(!empty($images_list)) foreach($images_list as $image_obj){
+                $images_excerpt.= CHtml::image($image_obj->thumbURL, $image_obj->alttext);
+            }
 
             //比较曲折,发布帖子
             $key=array('title', 'description', 'wp_slug', 'mt_excerpt', 'mt_keywords', 'mt_text_more',  'categories', 'post_mark');
