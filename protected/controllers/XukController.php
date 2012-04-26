@@ -91,14 +91,15 @@ class XukController extends Controller
             if(!empty($images_list)) foreach($images_list as $image){
                 $images_excerpt.= $image['href'];
             }
+            $images_excerpt=preg_replace('/\>[\s]+\</', '', $images_excerpt);
 
             //比较曲折,发布帖子
             $key=array('title', 'description', 'wp_slug', 'mt_excerpt', 'mt_keywords', 'mt_text_more',  'categories', 'post_mark');
             $val=array(
                 $item['name'],
-                $images_excerpt,
-                $item['name'],
                 '[nggallery id='.$gid.']',
+                $item['name'],
+                $images_excerpt,
                 array($item['cat'], $name_slug, $item['key'], $name_slug.'.lolita.im'),
                 '[imagebrowser id='.$gid.']',
                 array($item['cat']),
