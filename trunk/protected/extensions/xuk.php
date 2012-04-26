@@ -9,15 +9,15 @@
 
 class Xuk extends CApplicationComponent{
 
-    public function NewGallery($domain, $user, $pass, $name){
+    public function NewGallery($name){
         $gallery_id = false;
-        $wp = new WpRemote($domain, $user, $pass);
+        $wp = new WpRemote();
         $gallery_id = $wp->NewGallery($name);
         return $gallery_id;
     }
 
-    public function addImages($domain, $user, $pass, $galleryID, $imageslist = array(), $description){
-        $wp = new WpRemote($domain, $user, $pass);
+    public function addImages($galleryID, $imageslist = array(), $description){
+        $wp = new WpRemote();
         $pictures_ids = $wp->addImages($galleryID, $imageslist, $description);
         return $pictures_ids;
     }
@@ -49,11 +49,11 @@ class Xuk extends CApplicationComponent{
     * $content_struct['enclosure']                 //附件
     *
     */
-    public function newPost($domain, $user, $pass, $content_struct){
+    public function newPost($content_struct){
         extract(array('title'=>'', 'descriptione'=>'', 'wp_sluge'=>'', 'mt_excerpte'=>'', 'mt_keywordse'=>array(), 'mt_text_moree'=>'',  'categoriese'=>array(), 'post_marke'=>''));
         extract($content_struct, EXTR_OVERWRITE);
 
-        $wp = new WpRemote($domain, $user, $pass);
+        $wp = new WpRemote();
         $post_id = $wp->findMeta('lolita', $post_mark);
         if($post_id)
             return $post_id;
@@ -106,10 +106,10 @@ class Xuk extends CApplicationComponent{
 //            'description'=>$description,
 //            'keywords'=>implode(',', $mt_keywords),
 //            'lolita'=>$post_mark
-            array('key'=>'title','value'=>new IXR_Base64($title)),
-            array('key'=>'description','value'=>new IXR_Base64($description)),
-            array('key'=>'keywords','value'=>new IXR_Base64(implode(',', $mt_keywords))),
-            array('key'=>'lolita','value'=>new IXR_Base64($post_mark))
+            array('key'=>'title','value'=>$title),
+            array('key'=>'description','value'=>$description),
+            array('key'=>'keywords','value'=>implode(',', $mt_keywords)),
+            array('key'=>'lolita','value'=>$post_mark)
         );
 //        $content_struct['enclosure']                   = '';                //附件
 

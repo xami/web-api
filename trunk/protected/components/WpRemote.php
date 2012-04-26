@@ -13,6 +13,7 @@ class WpRemote
     private $wpURL;
     private $ixrPath;
 
+    private $domain;
     private $uname;
     private $upass;
 
@@ -22,12 +23,13 @@ class WpRemote
     var $code;
     var $message;
 
-    function __construct($domain, $uname, $upass)
+    function __construct()
     {
-        $this->uname=$uname;
-        $this->upass=$upass;
+        $this->uname  = YII::app()->params['wp_user'];
+        $this->upass  = YII::app()->params['wp_pass'];
+        $this->domain = YII::app()->params['wp_domain'];
 
-        $this->wpURL='http://'.$domain.'/xmlrpc.php';
+        $this->wpURL='http://'.$this->domain.'/xmlrpc.php';
         $this->ixrPath=Yii::getPathOfAlias(
             'application.extensions'
         ).DIRECTORY_SEPARATOR.'class-IXR.php';
