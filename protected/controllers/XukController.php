@@ -37,11 +37,9 @@ class XukController extends Controller
             $all[$i]['name']=$out[2][$i];
             $all[$i]['path']=$out[1][$i].'/'.$out[2][$i];
 
-            $all[$i]['images_excerpt']='';
             preg_match_all('/\<a\s+class=([\"\'])xuk_gallery(?1)\s+href=([\"\'])(http:\/\/img\d?\.xuk\.ru\/(.*?\.jpe?g))(?2)\s*\/?\>/i', $html, $images_src);
             foreach($images_src[4] as $file){
                 $all[$i]['images'][]='http://img.lolita.im/'.$file;
-                $all[$i]['images_excerpt'].= CHtml::image('http://img.lolita.im/'.$file, $out[2][$i]);
             }
             preg_match('/\/([\w\d_]*)\/\d+\(www\.xuk\.ru\)\d{0,3}\.jpg$/i', $file, $cut_key);
             $all[$i]['key']=isset($cut_key[1]) ? $cut_key[1] : '';
@@ -74,22 +72,31 @@ class XukController extends Controller
             // 创建相册
             $gid=Yii::app()->xuk->NewGallery($item['path']);
 
+
             if(empty($gid)){
                 //throw new CException('新建相册失败', 5);
                 IXR_Server::output(WpRemote::IXR_Error(500, '新建相册失败'));
             }
 
-            // 添加图片比较耗时的操作
+            // 发布图片,添加图片比较耗时的操作
             if(empty($item['images'])){
                 IXR_Server::output(WpRemote::IXR_Error(500, '源相册列表为空'));
             }
             $img_des='lolita.im,'.$name_slug;
             $pids=Yii::app()->xuk->addImages($gid, $item['images'], $img_des);
 
+            // 取得缩略图列表
+            $images_excerpt='';
+            $images_list=Yii::app()->xuk->getImages($item['path']);
+            if(!empty($images_list)) foreach($images_list as $image_obj){
+                $images_excerpt.= CHtml::image($image_obj->thumbURL, $image_obj->alttext);
+            }
+
+            //比较曲折,发布帖子
             $key=array('title', 'description', 'wp_slug', 'mt_excerpt', 'mt_keywords', 'mt_text_more',  'categories', 'post_mark');
             $val=array(
                 $item['name'],
-                $item['images_excerpt'],
+                $images_excerpt,
                 $item['name'],
                 '[nggallery id='.$gid.']',
                 array($item['cat'], $name_slug, $item['key'], $name_slug.'.lolita.im'),
@@ -98,8 +105,6 @@ class XukController extends Controller
                 $item['gallery']
             );
             $content_struct=array_combine($key, $val);
-
-            //比较曲折,发布帖子
             $post_ids[]=Yii::app()->xuk->newPost($content_struct);
             //            break;
         }
