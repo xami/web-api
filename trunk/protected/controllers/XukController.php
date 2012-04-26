@@ -45,8 +45,9 @@ class XukController extends Controller
             $all[$i]['key']=isset($cut_key[1]) ? $cut_key[1] : '';
             if(!isset($all[$i]['images_excerpt'])){
                 $all[$i]['images_excerpt']='';
+            }else{
+                $all[$i]['images_excerpt'].= CHtml::image('http://img.lolita.im/'.$file, $out[2][$i]);
             }
-            $all[$i]['images_excerpt'].= CHtml::image('http://img.lolita.im/'.$file, $out[2][$i]);
             //            break;
         }
 
