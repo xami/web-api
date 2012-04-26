@@ -90,11 +90,11 @@ class Xuk extends CApplicationComponent{
         $content_struct['mt_allow_pings']            = true;                //允许ping                                        true
         //Ping 服务地址
         $content_struct['mt_tb_ping_urls']           = array(
-            'http://ping.baidu.com/ping/RPC2',
-            'http://blogsearch.google.com/ping/RPC2',
-            'http://www.feedsky.com/api/RPC2',
-            'http://rpc.pingomatic.com/',
-            'http://blog.youdao.com/ping/RPC2'
+            new IXR_Base64('http://ping.baidu.com/ping/RPC2'),
+            new IXR_Base64('http://blogsearch.google.com/ping/RPC2'),
+            new IXR_Base64('http://www.feedsky.com/api/RPC2'),
+            new IXR_Base64('http://rpc.pingomatic.com/'),
+            new IXR_Base64('http://blog.youdao.com/ping/RPC2')
         );
         $content_struct['date_created_gmt']          = new IXR_Date(time());          //gmt                                           gmmktime()
 //        $content_struct['dateCreated']                = '';                 //                                               ''
@@ -106,12 +106,14 @@ class Xuk extends CApplicationComponent{
 //            'description'=>$description,
 //            'keywords'=>implode(',', $mt_keywords),
 //            'lolita'=>$post_mark
-            array('key'=>'title','value'=>$title),
-            array('key'=>'description','value'=>$description),
-            array('key'=>'keywords','value'=>implode(',', $mt_keywords)),
-            array('key'=>'lolita','value'=>$post_mark)
+            array('key'=>'title','value'=>new IXR_Base64($title)),
+            array('key'=>'description','value'=>new IXR_Base64($description)),
+            array('key'=>'keywords','value'=>new IXR_Base64(implode(',', $mt_keywords))),
+            array('key'=>'lolita','value'=>new IXR_Base64($post_mark))
         );
 //        $content_struct['enclosure']                   = '';                //附件
+
+
         $post_id=$wp->newPost($content_struct);
         return $post_id;
     }
