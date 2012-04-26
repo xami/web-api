@@ -109,7 +109,7 @@ class Xuk extends CApplicationComponent{
         $content_struct['date_created_gmt']          = new IXR_Date(time());          //gmt                                           gmmktime()
 //        $content_struct['dateCreated']                = '';                 //                                               ''
         $content_struct['categories']                 = $categories;        //内容分类                                      teen, name,       创建内容分类wp_create_categories($categories, $post_id = '');
-        $content_struct['sticky']                      = false;             //精华贴(置顶)                                  false
+//        $content_struct['sticky']                      = false;             //精华贴(置顶)                                  false
         //自定义字段,存储在wp_postmeta表                 常用字段 title, description, description
         $content_struct['custom_fields']              = array(
 //            'title'=>$title,
