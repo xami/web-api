@@ -123,7 +123,6 @@ class Xuk extends CApplicationComponent{
         );
 //        $content_struct['enclosure']                   = '';                //附件
 
-        pd($content_struct);
         $post_id=$this->wp->newPost($content_struct);
         return $post_id;
     }
