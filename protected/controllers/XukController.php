@@ -88,9 +88,8 @@ class XukController extends Controller
             // 取得缩略图列表
             $images_excerpt='';
             $images_list=Yii::app()->xuk->getImages($gid);
-            pd($images_list);
-            if(!empty($images_list)) foreach($images_list as $image_obj){
-                $images_excerpt.= CHtml::image($image_obj->thumbURL, $image_obj->alttext);
+            if(!empty($images_list)) foreach($images_list as $image){
+                $images_excerpt.= $image['href'];
             }
 
             //比较曲折,发布帖子
