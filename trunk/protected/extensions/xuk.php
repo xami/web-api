@@ -9,16 +9,27 @@
 
 class Xuk extends CApplicationComponent{
 
+    private $wp;
+
+    function __construct(){
+        $this->wp = new WpRemote();
+        parent::__construct();
+    }
+
     public function NewGallery($name){
         $gallery_id = false;
-        $wp = new WpRemote();
-        $gallery_id = $wp->NewGallery($name);
+        $gallery_id = $this->wp->NewGallery($name);
         return $gallery_id;
     }
 
+    public function getImages($gallery_id){
+        $images = array();
+        $images = $this->wp->getImages($gallery_id);
+        return $images;
+    }
+
     public function addImages($galleryID, $imageslist = array(), $description){
-        $wp = new WpRemote();
-        $pictures_ids = $wp->addImages($galleryID, $imageslist, $description);
+        $pictures_ids = $this->wp->addImages($galleryID, $imageslist, $description);
         return $pictures_ids;
     }
 
@@ -53,21 +64,20 @@ class Xuk extends CApplicationComponent{
         extract(array('title'=>'', 'descriptione'=>'', 'wp_sluge'=>'', 'mt_excerpte'=>'', 'mt_keywordse'=>array(), 'mt_text_moree'=>'',  'categoriese'=>array(), 'post_marke'=>''));
         extract($content_struct, EXTR_OVERWRITE);
 
-        $wp = new WpRemote();
-        $post_id = $wp->findMeta('lolita', $post_mark);
+        $post_id = $this->wp->findMeta('lolita', $post_mark);
         if($post_id)
             return $post_id;
 
         //取得分类id
         $cids=array();
         foreach($categories as $cat_name){
-            $cids[] = $wp->getCategory($cat_name);
+            $cids[] = $this->wp->getCategory($cat_name);
         }
 
         //取得tags id
         $tids=array();
         foreach($mt_keywords as $tag_name){
-            $tids[] = $wp->getTag($tag_name);
+            $tids[] = $this->wp->getTag($tag_name);
         }
 
 
@@ -114,7 +124,7 @@ class Xuk extends CApplicationComponent{
 //        $content_struct['enclosure']                   = '';                //附件
 
 
-        $post_id=$wp->newPost($content_struct);
+        $post_id=$this->wp->newPost($content_struct);
         return $post_id;
     }
 }

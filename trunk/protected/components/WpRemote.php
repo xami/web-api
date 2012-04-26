@@ -107,6 +107,13 @@ EOD;
         return $this->cateID;
     }
 
+    public function getImages($gid){
+        $gid=intval($gid);
+        if(!$this->client->query('ngg.getImages',0 ,$this->uname,$this->upass,$gid))
+            throw new CException($this->client->getErrorMessage());
+        $images = $this->client->getResponse();
+        return $images;
+    }
 
     public function NewGallery($name){
         if(!is_array($name))
