@@ -46,11 +46,11 @@ class WpRemote
       <struct>
         <member>
           <name>faultCode</name>
-          <value><int>{$this->code}</int></value>
+          <value><int>{$code}</int></value>
         </member>
         <member>
           <name>faultString</name>
-          <value><string>{$this->message}</string></value>
+          <value><string>{$message}</string></value>
         </member>
       </struct>
     </value>
