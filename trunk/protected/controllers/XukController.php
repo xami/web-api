@@ -122,6 +122,7 @@ class XukController extends Controller
             //            break;
         }
 
+        pd($post_ids);
 
         IXR_Server::output(WpRemote::IXR_Error(200,
             '成功更新'.count($pids).'张图片: '.implode(',',$pids ).';     '.
