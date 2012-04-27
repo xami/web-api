@@ -90,6 +90,7 @@ class XukController extends Controller
 
             // 取得缩略图列表
             $imageHTML='';
+            $thumbHTML='';
             $images_list=Yii::app()->xuk->getImages($gid);
             if(!empty($images_list)) foreach($images_list as $image){
                 $imageHTML.= $image['imageHTML'];
