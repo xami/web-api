@@ -43,7 +43,7 @@ class XukController extends Controller
             }
             preg_match('/\/([\w\d_]*)\/\d+\(www\.xuk\.ru\)\d{0,3}\.jpg$/i', $file, $cut_key);
             $all[$i]['key']=isset($cut_key[1]) ? $cut_key[1] : '';
-                        break;
+//                        break;
         }
 
 
@@ -108,9 +108,9 @@ class XukController extends Controller
             $key=array('title', 'description', 'wp_slug', 'mt_excerpt', 'mt_keywords', 'mt_text_more',  'categories', 'post_mark');
             $val=array(
                 $item['name'],
-                'http://'.$name_slug.'.lolita.im',
-                $name_slug,
                 $imageHTML,
+                $name_slug,
+                'I\'m LoLiTa (http://'.$name_slug.'.lolita.im)',
                 array($item['cat'], $name_slug, $item['key'], $name_slug.'.lolita.im'),
                 '',
                 array($item['cat']),
@@ -122,7 +122,10 @@ class XukController extends Controller
             //            break;
         }
 
-        pd($post_ids);
+        if(!is_array($pids) || !is_array($post_ids) ){
+            //throw new CException('新建相册失败', 5);
+            IXR_Server::output(WpRemote::IXR_Error(500, '发布图片 或 帖子失败'));
+        }
 
         IXR_Server::output(WpRemote::IXR_Error(200,
             '成功更新'.count($pids).'张图片: '.implode(',',$pids ).';     '.
