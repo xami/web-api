@@ -89,15 +89,17 @@ class XukController extends Controller
                 //throw new CException('新建相册失败', 5);
                 IXR_Server::output(WpRemote::IXR_Error(500, '发布图片失败'));
             }
+            pd($pids);
+            $images_list=Yii::app()->xuk->getImages($gid);
 
             // 取得缩略图列表
             $imageHTML='';
             $thumbHTML='';
-            $images_list=Yii::app()->xuk->getImages($gid);
-            pd($gid);
+            $thumbnail='';
             if(!empty($images_list)) foreach($images_list as $image){
                 $imageHTML.= $image['imageHTML'];
                 $thumbHTML.= $image['thumbHTML'];
+                $thumbnail = $image['thumbHTML'];
             }
             $imageHTML=preg_replace('/[\r\n]+/', '', $imageHTML);
             $thumbHTML=preg_replace('/[\r\n]+/', '', $thumbHTML);
@@ -118,7 +120,7 @@ class XukController extends Controller
                 $imageHTML,
                 array($item['cat']),
                 $item['gallery'],
-                $image['thumbHTML'],
+                $thumbnail,
                 $gid
             );
             $content_struct=array_combine($key, $val);
