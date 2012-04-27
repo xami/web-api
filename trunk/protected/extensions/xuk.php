@@ -69,6 +69,8 @@ class Xuk extends CApplicationComponent{
         extract(array('title'=>'', 'descriptione'=>'', 'wp_sluge'=>'', 'mt_excerpte'=>'', 'mt_keywordse'=>array(), 'mt_text_moree'=>'',  'categoriese'=>array(), 'post_marke'=>''));
         extract($content_struct, EXTR_OVERWRITE);
 
+        /*
+         * 移到wp执行
         $post_id = $this->wp->findMeta('lolita', $post_mark);
         if($post_id)
             return $post_id;
@@ -84,6 +86,7 @@ class Xuk extends CApplicationComponent{
         foreach($mt_keywords as $tag_name){
             $tids[] = $this->wp->getTag($tag_name);
         }
+        */
 
 
         $content_struct=array();
@@ -98,6 +101,7 @@ class Xuk extends CApplicationComponent{
         $content_struct['title']                      = $title;              //                                              xxxx
         $content_struct['description']               = $description;        //                                              xxxx
 //        $content_struct["{$post_type}_status"]       = '';                  //$content_struct['page_status']                 用于发布page不管
+        $content_struct["post_status"]               = 'publish';
         $content_struct['mt_excerpt']                = $mt_excerpt;          //摘要                                          feed内容是取此部分
         $content_struct['mt_text_more']              = $mt_text_more;       //更多
         $content_struct['mt_keywords']               = $mt_keywords;               //关键词                                       分类,名称,'lolita.im'
@@ -107,7 +111,6 @@ class Xuk extends CApplicationComponent{
         $content_struct['mt_tb_ping_urls']           = array(
             'http://ping.baidu.com/ping/RPC2',
             'http://blogsearch.google.com/ping/RPC2',
-            'http://www.feedsky.com/api/RPC2',
             'http://rpc.pingomatic.com/',
             'http://blog.youdao.com/ping/RPC2'
         );
@@ -128,7 +131,7 @@ class Xuk extends CApplicationComponent{
         );
 //        $content_struct['enclosure']                   = '';                //附件
 
-        $post_id=$this->wp->newPost($content_struct);
+        $post_id=$this->wp->newPost($post_mark, $categories, $mt_keywords, $content_struct);
         return $post_id;
     }
 }
