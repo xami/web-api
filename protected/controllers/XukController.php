@@ -84,7 +84,7 @@ class XukController extends Controller
                 IXR_Server::output(WpRemote::IXR_Error(500, '源相册列表为空'));
             }
             $img_des='lolita.im,'.$name_slug;
-            $pids[]=Yii::app()->xuk->addImages($gid, $item['images'], $img_des);
+            $pids=Yii::app()->xuk->addImages($gid, $item['images'], $img_des);
             if(empty($pids)){
                 //throw new CException('新建相册失败', 5);
                 IXR_Server::output(WpRemote::IXR_Error(500, '发布图片失败'));
@@ -140,7 +140,6 @@ class XukController extends Controller
                 $post_info.=$post_id.'('.'失败'.')'."\t";
             }
         }
-        pd($all_pids);
 
         IXR_Server::output(WpRemote::IXR_Error(200,
             '成功更新'.count($all_pids).'张图片: '.implode(',',$all_pids ).';'."\r\n".
