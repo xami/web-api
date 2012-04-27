@@ -54,6 +54,7 @@ class XukController extends Controller
 
         //轮循：取得单页图片链接，发表帖子
         $all_pids=array();
+        $pids=array();
         foreach($all as $item){
             //发表新帖
             $search = array (
@@ -82,7 +83,7 @@ class XukController extends Controller
                 IXR_Server::output(WpRemote::IXR_Error(500, '源相册列表为空'));
             }
             $img_des='lolita.im,'.$name_slug;
-            $pids=Yii::app()->xuk->addImages($gid, $item['images'], $img_des);
+            $pids[]=Yii::app()->xuk->addImages($gid, $item['images'], $img_des);
 
             if(empty($pids)){
                 //throw new CException('新建相册失败', 5);
@@ -99,22 +100,25 @@ class XukController extends Controller
             }
             $imageHTML=preg_replace('/[\r\n]+/', '', $imageHTML);
             $thumbHTML=preg_replace('/[\r\n]+/', '', $thumbHTML);
-            //取得单张缩略图
+
+            //取得首张缩略图
 //            $images_obj=Yii::app()->xuk->getImage($pids[0]);
-//            $images_excerpt=preg_replace('/[\r\n]+/', '', $images_obj['href']);
+//            $thumbnail=preg_replace('/[\r\n]+/', '', $images_obj['href']);
 
 
             //比较曲折,发布帖子
-            $key=array('title', 'description', 'wp_slug', 'mt_excerpt', 'mt_keywords', 'mt_text_more',  'categories', 'post_mark');
+            $key=array('title', 'description', 'wp_slug', 'mt_excerpt', 'mt_keywords', 'mt_text_more',  'categories', 'post_mark', 'thumbnail', 'gallery');
             $val=array(
                 $item['name'],
-                $imageHTML,
+                $thumbHTML,
                 $name_slug,
                 'I\'m LoLiTa (http://'.$name_slug.'.lolita.im)',
                 array($item['cat'], $name_slug, $item['key'], $name_slug.'.lolita.im'),
-                '',
+                $imageHTML,
                 array($item['cat']),
-                $item['gallery']
+                $item['gallery'],
+                $image['thumbHTML'],
+                $gid
             );
             $content_struct=array_combine($key, $val);
             $post_ids[]=Yii::app()->xuk->newPost($content_struct);
@@ -122,15 +126,29 @@ class XukController extends Controller
             //            break;
         }
 
-        if(!is_array($pids) || !is_array($post_ids) ){
+        if(!is_array($all_pids) || !is_array($post_ids) ){
             //throw new CException('新建相册失败', 5);
             IXR_Server::output(WpRemote::IXR_Error(500, '发布图片 或 帖子失败'));
         }
 
-        IXR_Server::output(WpRemote::IXR_Error(200,
-            '成功更新'.count($pids).'张图片: '.implode(',',$pids ).';     '.
-            '成功发布'.count($post_ids).'组图片: '.implode(',',$post_ids )));
+        // 发布帖子,更新首页缩略图
+        $post_info='';
+        foreach($post_ids as $post_id){
+            if($post_id ==Yii::app()->xuk->publishPost($post_id)){
+                $post_info.=$post_id.'('.'成功'.')'."\t";
+            }else{
+                $post_info.=$post_id.'('.'失败'.')'."\t";
+            }
+        }
 
+        IXR_Server::output(WpRemote::IXR_Error(200,
+            '成功更新'.count($all_pids).'张图片: '.implode(',',$all_pids ).';'."\r\n".
+            '执行发布'.count($post_ids).'组图片: '.$post_info));
+
+    }
+
+    public function actionPublish(){
+        $page=intval(Yii::app()->request->getParam('p', 1));
     }
 
 	// Uncomment the following methods and override them if needed

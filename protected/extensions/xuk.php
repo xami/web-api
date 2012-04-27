@@ -38,6 +38,11 @@ class Xuk extends CApplicationComponent{
         return $pictures_ids;
     }
 
+    public function publishPost($pid){
+        $pid = $this->wp->publishPost($pid);
+        return $pid;
+    }
+
     /*
     * $content_struct['post_type']                 //文章类型（attachment/page/post/revision）       post
     * $content_struct['page_status']               //状态                                           publish
@@ -66,7 +71,9 @@ class Xuk extends CApplicationComponent{
     *
     */
     public function newPost($content_struct){
-        extract(array('title'=>'', 'descriptione'=>'', 'wp_sluge'=>'', 'mt_excerpte'=>'', 'mt_keywordse'=>array(), 'mt_text_moree'=>'',  'categoriese'=>array(), 'post_marke'=>''));
+        extract(array('title'=>'', 'descriptione'=>'', 'wp_sluge'=>'', 'mt_excerpte'=>'',
+            'mt_keywordse'=>array(), 'mt_text_moree'=>'',  'categoriese'=>array(),
+            'post_marke'=>'', 'thumbnail'=>'', 'gallery'=>0));
         extract($content_struct, EXTR_OVERWRITE);
 
         /*
@@ -127,7 +134,10 @@ class Xuk extends CApplicationComponent{
             array('key'=>'title','value'=>$title),
             array('key'=>'description','value'=>$description),
             array('key'=>'keywords','value'=>implode(',', $mt_keywords)),
-            array('key'=>'lolita','value'=>$post_mark)
+            array('key'=>'lolita','value'=>$post_mark),
+            array('key'=>'thumbnail','value'=>$thumbnail),
+            array('key'=>'gallery','value'=>$gallery),
+            array('key'=>'views','value'=>0)
         );
 //        $content_struct['enclosure']                   = '';                //附件
 
