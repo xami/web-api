@@ -74,6 +74,7 @@ class XukController extends Controller
 
             // 创建相册
             $gid=Yii::app()->xuk->NewGallery($item['path']);
+            pd($gid);
             if(empty($gid)){
                 //throw new CException('新建相册失败', 5);
                 IXR_Server::output(WpRemote::IXR_Error(500, '新建相册失败'));
@@ -91,7 +92,7 @@ class XukController extends Controller
             }
 
             $images_list=Yii::app()->xuk->getImages($gid);
-            pd($gid);
+
             // 取得缩略图列表
             $imageHTML='';
             $thumbHTML='';
