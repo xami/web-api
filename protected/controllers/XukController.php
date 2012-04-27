@@ -89,15 +89,17 @@ class XukController extends Controller
             }
 
             // 取得缩略图列表
-//            $images_excerpt='';
-//            $images_list=Yii::app()->xuk->getImages($gid);
-//            if(!empty($images_list)) foreach($images_list as $image){
-//                $images_excerpt.= $image['href'];
-//            }
-//            $images_excerpt=preg_replace('/[\r\n]+/', '', $images_excerpt);
+            $imageHTML='';
+            $images_list=Yii::app()->xuk->getImages($gid);
+            if(!empty($images_list)) foreach($images_list as $image){
+                $imageHTML.= $image['imageHTML'];
+                $thumbHTML.= $image['thumbHTML'];
+            }
+            $imageHTML=preg_replace('/[\r\n]+/', '', $imageHTML);
+            $thumbHTML=preg_replace('/[\r\n]+/', '', $thumbHTML);
             //取得单张缩略图
-            $images_obj=Yii::app()->xuk->getImage($pids[0]);
-            $images_excerpt=preg_replace('/[\r\n]+/', '', $images_obj['href']);
+//            $images_obj=Yii::app()->xuk->getImage($pids[0]);
+//            $images_excerpt=preg_replace('/[\r\n]+/', '', $images_obj['href']);
 
 
 
@@ -106,9 +108,9 @@ class XukController extends Controller
             $key=array('title', 'description', 'wp_slug', 'mt_excerpt', 'mt_keywords', 'mt_text_more',  'categories', 'post_mark');
             $val=array(
                 $item['name'],
+                $thumbHTML,
                 $name_slug,
-                $item['name'],
-                $images_excerpt,
+                $imageHTML,
                 array($item['cat'], $name_slug, $item['key'], $name_slug.'.lolita.im'),
                 '[imagebrowser id='.$gid.']',
                 array($item['cat']),

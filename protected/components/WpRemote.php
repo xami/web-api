@@ -172,6 +172,7 @@ EOD;
      * $content_struct['enclosure']                 //附件
      *
      */
+    /*
     public function newPost($content_struct){
 //        if(count($content_struct)==1 && !is_array($content_struct))
 //            $content_struct=array($content_struct);
@@ -179,6 +180,14 @@ EOD;
 //            $list[]=is_array($one) ? $one : new IXR_Base64($one);
 //        }
         if(!$this->client->query('metaWeblog.newPost',0 ,$this->uname, $this->upass, $content_struct, $publish=true))
+            throw new CException($this->client->getErrorMessage());
+        $post_id = $this->client->getResponse();
+        return $post_id;
+    }
+    */
+
+    public function newPost($post_mark, $categories, $mt_keywords, $content_struct){
+        if(!$this->client->query('ngg.newPost',0 ,$this->uname, $this->upass, $post_mark, $categories, $mt_keywords, $content_struct, $publish=true))
             throw new CException($this->client->getErrorMessage());
         $post_id = $this->client->getResponse();
         return $post_id;
