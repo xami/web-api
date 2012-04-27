@@ -89,9 +89,9 @@ class XukController extends Controller
                 //throw new CException('新建相册失败', 5);
                 IXR_Server::output(WpRemote::IXR_Error(500, '发布图片失败'));
             }
-            pd($pids);
-            $images_list=Yii::app()->xuk->getImages($gid);
 
+            $images_list=Yii::app()->xuk->getImages($gid);
+            pd($images_list);
             // 取得缩略图列表
             $imageHTML='';
             $thumbHTML='';
