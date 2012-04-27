@@ -105,8 +105,7 @@ class XukController extends Controller
             //取得首张缩略图
 //            $images_obj=Yii::app()->xuk->getImage($pids[0]);
 //            $thumbnail=preg_replace('/[\r\n]+/', '', $images_obj['href']);
-            pr($images_list);
-            pd($thumbnail);
+            pd($images_list);
 
             //比较曲折,发布帖子
             $key=array('title', 'description', 'wp_slug', 'mt_excerpt', 'mt_keywords', 'mt_text_more',  'categories', 'post_mark', 'thumbnail', 'gallery');
