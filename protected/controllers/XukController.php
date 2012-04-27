@@ -43,13 +43,13 @@ class XukController extends Controller
             }
             preg_match('/\/([\w\d_]*)\/\d+\(www\.xuk\.ru\)\d{0,3}\.jpg$/i', $file, $cut_key);
             $all[$i]['key']=isset($cut_key[1]) ? $cut_key[1] : '';
-//                        break;
+                        break;
         }
 
 
         if(empty($all)){
             //throw new CException('没有取得需要数据', 4);
-            IXR_Server::output(WpRemote::IXR_Error(500, '没有取得需要数据'));
+            IXR_Server::output(WpRemote::IXR_Error(500, '没有取得需要的图片源数据'));
         }
 
         //轮循：取得单页图片链接，发表帖子
@@ -72,7 +72,6 @@ class XukController extends Controller
 
             // 创建相册
             $gid=Yii::app()->xuk->NewGallery($item['path']);
-            pd($gid);
             if(empty($gid)){
                 //throw new CException('新建相册失败', 5);
                 IXR_Server::output(WpRemote::IXR_Error(500, '新建相册失败'));
@@ -84,9 +83,10 @@ class XukController extends Controller
             }
             $img_des='lolita.im,'.$name_slug;
             $pids=Yii::app()->xuk->addImages($gid, $item['images'], $img_des);
+
             if(empty($pids)){
                 //throw new CException('新建相册失败', 5);
-                IXR_Server::output(WpRemote::IXR_Error(500, '采集图片失败'));
+                IXR_Server::output(WpRemote::IXR_Error(500, '发布图片失败'));
             }
 
             // 取得缩略图列表
@@ -104,17 +104,15 @@ class XukController extends Controller
 //            $images_excerpt=preg_replace('/[\r\n]+/', '', $images_obj['href']);
 
 
-
-
             //比较曲折,发布帖子
             $key=array('title', 'description', 'wp_slug', 'mt_excerpt', 'mt_keywords', 'mt_text_more',  'categories', 'post_mark');
             $val=array(
                 $item['name'],
-                $thumbHTML,
+                'http://'.$name_slug.'.lolita.im',
                 $name_slug,
                 $imageHTML,
                 array($item['cat'], $name_slug, $item['key'], $name_slug.'.lolita.im'),
-                '[imagebrowser id='.$gid.']',
+                '',
                 array($item['cat']),
                 $item['gallery']
             );
@@ -123,7 +121,7 @@ class XukController extends Controller
             $all_pids=array_merge($all_pids, $pids);
             //            break;
         }
-        pd($post_ids);
+
 
         IXR_Server::output(WpRemote::IXR_Error(200,
             '成功更新'.count($pids).'张图片: '.implode(',',$pids ).';     '.
