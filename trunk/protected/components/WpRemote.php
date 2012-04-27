@@ -193,6 +193,13 @@ EOD;
         return $post_id;
     }
 
+    public function publishPost($post_ID){
+        if(!$this->client->query('mt.publishPost',$post_ID ,$this->uname, $this->upass))
+            throw new CException($this->client->getErrorMessage());
+        $post_id = $this->client->getResponse();
+        return $post_id;
+    }
+
     public function findMeta($key, $val){
         if(!$this->client->query('ngg.findMeta',0 ,$this->uname, $this->upass, $key, $val))
             throw new CException($this->client->getErrorMessage());
