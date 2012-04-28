@@ -132,7 +132,7 @@ class XukController extends Controller
             $content_struct=array_combine($key, $val);
             //ngg.newPost
             $post_ids[]=Yii::app()->xuk->newPost($content_struct);
-            $all_pids[]=$pids;
+            $all_pids[$gid]=$pids;
 //            break;
         }
 //        pd($post_ids);
@@ -153,7 +153,6 @@ class XukController extends Controller
             }
         }
 
-        pd($all_pids);
         $image_info='';
         foreach($all_pids as $key => $item){
             $image_info .= $key. ' : ';
