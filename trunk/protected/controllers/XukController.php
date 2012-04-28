@@ -160,19 +160,24 @@ class XukController extends Controller
 
         $image_info='';
         foreach($all_pids as $key => $item){
-            $image_info .= 'gallery('.$key. ') : pictures [';
+            $image_info .= 'gallery['.$key. '] : pictures [';
             foreach($item as $one){
                 $image_info .= '  '.$one;
             }
             $image_info.="]\r\n";
         }
-        echo '<pre>RUN Time : '.date("Y-m-d H:m:s")."\r\n".'Updated '.count($all_pids).' Posts: '."\r\n".
-              "================================================================================================\r\n".
-              $image_info."\r\n".
-
-              'Published '.count($post_ids).' Gallery: '. "\r\n".
-              "================================================================================================\r\n".
-              $post_info.'</pre>';
+        echo
+            '<pre>'.
+            '-------------------------------------------------'."\r\n".
+            'RUN Time : '.date("Y-m-d H:m:s")."\r\n\r\n".'Updated '.count($all_pids).' Posts: '."\r\n".
+            "================================================================================================\r\n".
+            $image_info."\r\n".
+            'Published '.count($post_ids).' Gallery: '. "\r\n".
+            "================================================================================================\r\n".
+            $post_info."\r\n".
+            '-------------------------------------------------'."\r\n".
+            "\r\n\r\n".
+            '</pre>';
 
     }
 
