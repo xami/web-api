@@ -132,7 +132,7 @@ class XukController extends Controller
             );
             $content_struct=array_combine($key, $val);
             $post_ids[]=Yii::app()->xuk->newPost($content_struct);
-            $all_pids=array_merge($all_pids, $pids);
+//            $all_pids=array_merge($all_pids, $pids);
             //            break;
         }
         pd($post_ids);
