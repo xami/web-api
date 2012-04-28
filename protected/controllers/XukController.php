@@ -153,6 +153,7 @@ class XukController extends Controller
             }
         }
 
+        pd($all_pids);
         $image_info='';
         foreach($all_pids as $key => $item){
             $image_info .= $key. ' : ';
