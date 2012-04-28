@@ -102,6 +102,7 @@ class XukController extends Controller
             $imageHTML='';
             $thumbHTML='';
             if(!empty($images_list)) foreach($images_list as $image){
+                pd($image);
                 $imageHTML.= '<img src="'.$image->imageURL.'" alt="'.htmlentities($image->description).'" />';
                 $thumbHTML.= $image['thumbHTML'];
             }
