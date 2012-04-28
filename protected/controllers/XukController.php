@@ -145,12 +145,14 @@ class XukController extends Controller
         // 发布帖子,更新首页缩略图
         $post_info='';
         foreach($post_ids as $post_id){
-            if($post_id ==Yii::app()->xuk->publishPost($post_id)){
+            $posted_id = Yii::app()->xuk->publishPost($post_id);
+            if($posted_id == $post_id){
                 $post_info.=$post_id.'('.'成功'.')'."\t";
             }else{
                 $post_info.=$post_id.'('.'失败'.')'."\t";
             }
         }
+        pd($posted_id);
 
         IXR_Server::output(WpRemote::IXR_Error(200,
             '成功更新'.count($all_pids).'张图片: '.implode(',',$all_pids ).';'."\r\n".
