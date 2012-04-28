@@ -155,11 +155,12 @@ class XukController extends Controller
 
         $image_info='';
         foreach($all_pids as $key => $item){
-            $image_info .= 'gallery('.$key. ') : pictures[ ';
+            $image_info .= 'gallery('.$key. ') : pictures [';
             foreach($item as $one){
                 $image_info .= '  '.$one;
             }
-            $image_info.=" ]\r\n";
+            $image_info.="
+            ]\r\n";
         }
         echo '<pre>Updated '.count($all_pids).' Posts: '."\r\n".
               "================================================================================================\r\n".
