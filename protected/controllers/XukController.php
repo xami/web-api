@@ -41,11 +41,18 @@ class XukController extends Controller
             foreach($images_src[4] as $file){
                 $all[$i]['images'][]='http://img.lolita.im/'.$file;
             }
-            preg_match('/\/([\w\d_]*)\/\d+\(www\.xuk\.ru\)\d{0,3}\.jpg$/i', $file, $cut_key);
-            $all[$i]['key']=isset($cut_key[1]) ? $cut_key[1] : '';
+
+            $all[$i]['key']='';
+            if(isset($file)){
+                preg_match('/\/([\w\d_]*)\/\d+\(www\.xuk\.ru\)\d{0,3}\.jpg$/i', $file, $cut_key);
+                $all[$i]['key']=isset($cut_key[1]) ? $cut_key[1] : '';
+            }
+
+
 //                        break;
         }
-
+        $all=array($all[0]);
+//        pd($all);
 
         if(empty($all)){
             //throw new CException('没有取得需要数据', 4);
@@ -56,7 +63,6 @@ class XukController extends Controller
         $pids=array();
         $all_pids=array();
         $post_ids=array();
-        $a=0;
         foreach($all as $item){
             //发表新帖
             $search = array (
@@ -126,12 +132,10 @@ class XukController extends Controller
             );
             $content_struct=array_combine($key, $val);
             $post_ids[]=Yii::app()->xuk->newPost($content_struct);
-            if($i==1)
-                pd($post_ids);
             $all_pids=array_merge($all_pids, $pids);
-            $i++;
             //            break;
         }
+        pd($post_ids);
 
         if(!is_array($all_pids) || !is_array($post_ids) ){
             //throw new CException('新建相册失败', 5);
