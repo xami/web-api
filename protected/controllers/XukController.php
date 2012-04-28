@@ -155,16 +155,16 @@ class XukController extends Controller
 
         $image_info='';
         foreach($all_pids as $key => $item){
-            $image_info .= $key. ' : ';
+            $image_info .= 'gallery('.$key. ') : pictures[ ';
             foreach($item as $one){
                 $image_info .= '  '.$one;
             }
-            $image_info.="\r\n";
+            $image_info.=" ]\r\n";
         }
-        echo '<pre>成功更新'.count($all_pids).'张图片: '."\r\n".
+        echo '<pre>Updated '.count($all_pids).' Pictures: '."\r\n".
               $image_info.';'.
               "\r\n================================================\r\n".
-              '执行发布'.count($post_ids).'组图片: '.$post_info.'</pre>';
+              'Published '.count($post_ids).' Gallery: '.$post_info.'</pre>';
 
     }
 
