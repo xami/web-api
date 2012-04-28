@@ -166,7 +166,7 @@ class XukController extends Controller
             }
             $image_info.="]\r\n";
         }
-        echo '<pre>Updated '.count($all_pids).' Posts: '."\r\n".
+        echo '<pre>RUN Time : '.date("Y-m-d H:m:s")."\r\n".'Updated '.count($all_pids).' Posts: '."\r\n".
               "================================================================================================\r\n".
               $image_info."\r\n".
 
