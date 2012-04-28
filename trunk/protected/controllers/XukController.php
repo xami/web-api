@@ -102,7 +102,7 @@ class XukController extends Controller
             $imageHTML='';
             $thumbHTML='';
             if(!empty($images_list)) foreach($images_list as $image){
-                $imageHTML.= '<img src="'.$image->imageURL.'" alt="'.htmlentities($image->description).'" />';
+                $imageHTML.= '<img src="'.$image['imageURL'].'" alt="'.htmlentities($image['description']).'" />';
                 $thumbHTML.= $image['thumbHTML'];
             }
             $imageHTML=preg_replace('/[\r\n]+/', '', $imageHTML);
@@ -118,7 +118,7 @@ class XukController extends Controller
                 $thumb_size = 'width="' . $size['width'] . '" height="' . $size['height'] . '"';
             else
                 $thumb_size = 'width="285"';
-            $thumbnail = '<img src="'.$image->thumbURL.'" '.$thumb_size.' alt="'.htmlentities($image->description).'" />';
+            $thumbnail = '<img src="'.$image['thumbURL'].'" '.$thumb_size.' alt="'.htmlentities($image['description']).'" />';
 
             //比较曲折,发布帖子
             $key=array('title', 'description', 'wp_slug', 'mt_excerpt', 'mt_keywords', 'mt_text_more',  'categories', 'post_mark', 'thumbnail', 'gallery');
