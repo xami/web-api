@@ -153,7 +153,6 @@ class XukController extends Controller
                 $post_info.=$post_id.'('.'失败'.')'."\t";
             }
         }
-        pd($posted_id, 'xx'.$post_id);
 
         IXR_Server::output(WpRemote::IXR_Error(200,
             '成功更新'.count($all_pids).'张图片: '.implode(',',$all_pids ).';'."\r\n".
