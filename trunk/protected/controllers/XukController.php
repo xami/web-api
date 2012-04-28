@@ -101,11 +101,9 @@ class XukController extends Controller
             // 取得缩略图列表
             $imageHTML='';
             $thumbHTML='';
-            $thumbnail='';
             if(!empty($images_list)) foreach($images_list as $image){
-                $imageHTML.= $image['imageHTML'];
+                $imageHTML.= '<img src="'.$image->imageURL.'" alt="'.htmlentities($image->description).'" />';
                 $thumbHTML.= $image['thumbHTML'];
-                $thumbnail = $image['thumbHTML'];
             }
             $imageHTML=preg_replace('/[\r\n]+/', '', $imageHTML);
             $thumbHTML=preg_replace('/[\r\n]+/', '', $thumbHTML);
@@ -114,14 +112,21 @@ class XukController extends Controller
 //            $images_obj=Yii::app()->xuk->getImage($pids[0]);
 //            $thumbnail=preg_replace('/[\r\n]+/', '', $images_obj['href']);
 
+            $tag_link='http://'.$name_slug.'.lolita.im';
+
+            if ( isset($image->meta_data['thumbnail']) && is_array ($size = $image->meta_data['thumbnail']) )
+                $thumb_size = 'width="' . $size['width'] . '" height="' . $size['height'] . '"';
+            else
+                $thumb_size = 'width="285"';
+            $thumbnail = '<img src="'.$image->thumbURL.'" '.$thumb_size.' alt="'.htmlentities($image->description).'" />';
 
             //比较曲折,发布帖子
             $key=array('title', 'description', 'wp_slug', 'mt_excerpt', 'mt_keywords', 'mt_text_more',  'categories', 'post_mark', 'thumbnail', 'gallery');
             $val=array(
                 $item['name'],
-                $thumbHTML,
+                'I\'m LoLiTa ('.CHtml::link($tag_link, $tag_link, array('alt'=>$item['cat'] .','. $name_slug .','. $item['key'] .','. $name_slug.'.lolita.im')).')',
                 $name_slug,
-                'I\'m LoLiTa (http://'.$name_slug.'.lolita.im)',
+                $thumbHTML,
                 array($item['cat'], $name_slug, $item['key'], $name_slug.'.lolita.im'),
                 $imageHTML,
                 array($item['cat']),
