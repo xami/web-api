@@ -147,9 +147,9 @@ class XukController extends Controller
         foreach($post_ids as $post_id){
             $posted_id = Yii::app()->xuk->publishPost($post_id);
             if($posted_id == $post_id){
-                $post_info.=$post_id.'('.'成功'.')'."\t";
+                $post_info.=$post_id.'('.'true'.')'."\t";
             }else{
-                $post_info.=$post_id.'('.'失败'.')'."\t";
+                $post_info.=$post_id.'('.'false'.')'."\t";
             }
         }
 
@@ -161,10 +161,13 @@ class XukController extends Controller
             }
             $image_info.=" ]\r\n";
         }
-        echo '<pre>Updated '.count($all_pids).' Pictures: '."\r\n".
-              $image_info.';'.
-              "\r\n================================================\r\n".
-              'Published '.count($post_ids).' Gallery: '.$post_info.'</pre>';
+        echo '<pre>Updated '.count($all_pids).' Posts: '."\r\n".
+              "================================================================================================\r\n".
+              $image_info."\r\n".
+
+              'Published '.count($post_ids).' Gallery: '. "\r\n".
+              "================================================================================================\r\n".
+              $post_info.'</pre>';
 
     }
 
