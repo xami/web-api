@@ -164,7 +164,7 @@ class XukController extends Controller
             foreach($item as $one){
                 $image_info .= '  '.$one;
             }
-            $image_info.="]\r\n";
+            $image_info.=" ]\r\n";
         }
         echo
             '<pre>'.
