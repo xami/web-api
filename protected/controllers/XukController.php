@@ -49,9 +49,9 @@ class XukController extends Controller
             }
 
 
-//                        break;
+//          break;
         }
-        $all=array($all[0]);
+//        $all=array($all[0]);
 //        pd($all);
 
         if(empty($all)){
@@ -60,7 +60,6 @@ class XukController extends Controller
         }
 
         //轮循：取得单页图片链接，发表帖子
-        $pids=array();
         $all_pids=array();
         $post_ids=array();
         foreach($all as $item){
@@ -133,8 +132,8 @@ class XukController extends Controller
             $content_struct=array_combine($key, $val);
             //ngg.newPost
             $post_ids[]=Yii::app()->xuk->newPost($content_struct);
-//            $all_pids=array_merge($all_pids, $pids);
-            //            break;
+            $all_pids=array_merge($all_pids, $pids);
+//            break;
         }
 //        pd($post_ids);
 
@@ -154,9 +153,18 @@ class XukController extends Controller
             }
         }
 
-        IXR_Server::output(WpRemote::IXR_Error(200,
-            '成功更新'.count($all_pids).'张图片: '.implode(',',$all_pids ).';'."\r\n".
-            '执行发布'.count($post_ids).'组图片: '.$post_info));
+        $image_info='';
+        foreach($all_pids as $key => $item){
+            $image_info .= $key. ' : ';
+            foreach($item as $one){
+                $image_info .= '  '.$one;
+            }
+            $image_info.="\r\n";
+        }
+        echo '<pre>成功更新'.count($all_pids).'张图片: '."\r\n".
+              $image_info.';'.
+              "\r\n================================================\r\n".
+              '执行发布'.count($post_ids).'组图片: '.$post_info.'</pre>';
 
     }
 
