@@ -144,13 +144,18 @@ class XukController extends Controller
 
         // 发布帖子,更新首页缩略图
         $post_info='';
+        $i=1;
         foreach($post_ids as $post_id){
             $posted_id = Yii::app()->xuk->publishPost($post_id);
             if($posted_id == $post_id){
-                $post_info.=$post_id.'('.'true'.')'."\t";
+                $post_info.=$post_id.'('.'true'.')'."    ";
             }else{
-                $post_info.=$post_id.'('.'false'.')'."\t";
+                $post_info.=$post_id.'('.'false'.')'."    ";
             }
+            if($i==8){
+                $post_info.="\r\n";
+            }
+            $i++;
         }
 
         $image_info='';
@@ -159,8 +164,7 @@ class XukController extends Controller
             foreach($item as $one){
                 $image_info .= '  '.$one;
             }
-            $image_info.="
-            ]\r\n";
+            $image_info.="]\r\n";
         }
         echo '<pre>Updated '.count($all_pids).' Posts: '."\r\n".
               "================================================================================================\r\n".
