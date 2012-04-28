@@ -129,6 +129,7 @@ class XukController extends Controller
             $all_pids=array_merge($all_pids, $pids);
             //            break;
         }
+        pd($all);
 
         if(!is_array($all_pids) || !is_array($post_ids) ){
             //throw new CException('新建相册失败', 5);
