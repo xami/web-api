@@ -125,11 +125,9 @@ class XukController extends Controller
             );
             $content_struct=array_combine($key, $val);
             $post_ids[]=Yii::app()->xuk->newPost($content_struct);
-            pd($post_ids);
             $all_pids=array_merge($all_pids, $pids);
             //            break;
         }
-        pd($all);
 
         if(!is_array($all_pids) || !is_array($post_ids) ){
             //throw new CException('新建相册失败', 5);
