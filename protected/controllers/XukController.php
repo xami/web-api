@@ -56,6 +56,7 @@ class XukController extends Controller
         $pids=array();
         $all_pids=array();
         $post_ids=array();
+        $a=0;
         foreach($all as $item){
             //发表新帖
             $search = array (
@@ -125,8 +126,10 @@ class XukController extends Controller
             );
             $content_struct=array_combine($key, $val);
             $post_ids[]=Yii::app()->xuk->newPost($content_struct);
-            pd($post_ids);
+            if($i==1)
+                pd($post_ids);
             $all_pids=array_merge($all_pids, $pids);
+            $i++;
             //            break;
         }
 
