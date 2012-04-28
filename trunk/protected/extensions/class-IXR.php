@@ -652,7 +652,7 @@ class IXR_Client
         }
         $request .= $r;
 
-        $request .= $xml;
+        echo $request .= $xml;
 
         // Now send the request
         if ($this->debug) {
