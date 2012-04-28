@@ -131,11 +131,12 @@ class XukController extends Controller
                 $gid
             );
             $content_struct=array_combine($key, $val);
+            //ngg.newPost
             $post_ids[]=Yii::app()->xuk->newPost($content_struct);
 //            $all_pids=array_merge($all_pids, $pids);
             //            break;
         }
-        pd($post_ids);
+//        pd($post_ids);
 
         if(!is_array($all_pids) || !is_array($post_ids) ){
             //throw new CException('新建相册失败', 5);
