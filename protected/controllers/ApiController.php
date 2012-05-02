@@ -87,7 +87,8 @@ class ApiController extends Controller
         //保存临时文件
         $cache_path=Yii::app()->runtimePath.DIRECTORY_SEPARATOR.'api_image_cache'.DIRECTORY_SEPARATOR.$key;
         @file_put_contents($cache_path, $this->srcData);
-
+        pr($src,'<br>');
+        pd($cache_path);
 
         //简单校验图片源是否正常生成
         include_once(
