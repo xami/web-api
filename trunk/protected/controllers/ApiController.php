@@ -47,12 +47,6 @@ class ApiController extends Controller
 
     public function actionImg(){
         $cache_time = 3600*24;    //缓存时间：一天
-        header("Pragma: public"); // required
-        header("Cache-Control: max-age=".$cache_time);//24小时
-        header('Last-Modified:'.gmdate('D, d M Y H:i:s').'GMT');
-        header('Expires:'.gmdate('D, d M Y H:i:s', time() + $cache_time).'GMT');
-        header("Cache-Control: private",false); // required for certain browsers
-        header("Content-Transfer-Encoding: binary");
 
         $src  = MCrypy::decrypt(Yii::app()->request->getParam('src', ''), Yii::app()->params['MCrypy'], 128);       //图片水印链接
         if(empty($src) || !Tools::is_url($src)){
@@ -70,6 +64,12 @@ class ApiController extends Controller
         //直接取得缓存缩略图
         $data=YII::app()->cache->get($key.$ext);
         if(!empty($data)){              //有缓存直接输出
+            header("Pragma: public"); // required
+            header("Cache-Control: max-age=".$cache_time);//24小时
+            header('Last-Modified:'.gmdate('D, d M Y H:i:s').'GMT');
+            header('Expires:'.gmdate('D, d M Y H:i:s', time() + $cache_time).'GMT');
+            header("Cache-Control: private",false); // required for certain browsers
+            header("Content-Transfer-Encoding: binary");
             $this->showImageString($data);
             exit;
         }
@@ -123,6 +123,12 @@ class ApiController extends Controller
         }
 
         $image->save();
+        header("Pragma: public"); // required
+        header("Cache-Control: max-age=".$cache_time);//24小时
+        header('Last-Modified:'.gmdate('D, d M Y H:i:s').'GMT');
+        header('Expires:'.gmdate('D, d M Y H:i:s', time() + $cache_time).'GMT');
+        header("Cache-Control: private",false); // required for certain browsers
+        header("Content-Transfer-Encoding: binary");
         $image->render();
         YII::app()->cache->set($key.$ext, @file_get_contents($cache_path), $cache_time);
         unlink($cache_path);
