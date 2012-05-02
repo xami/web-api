@@ -49,7 +49,7 @@ class XukController extends Controller
             }
 
 
-//          break;
+          break;
         }
 //        $all=array($all[0]);
 //        pd($all);
