@@ -102,11 +102,13 @@ class XukController extends Controller
             $imageHTML='';
             $thumbHTML='';
             if(!empty($images_list)) foreach($images_list as $image){
-                $imageHTML.= '<img src="'.$image['imageURL'].'" alt="'.htmlentities($image['description']).'" />';
-                $thumbHTML.= $image['thumbHTML'];
+                $imageHTML .= '<a href="'.Tools::callImage($image['imageURL']).'" title="'.htmlentities($image['description']).'">'.
+                '<img src="'.Tools::callImage($image['imageURL'], 660).'" alt="'.htmlentities($image['description']).'" /></a>';
+                $thumbHTML .= '<a href="'.Tools::callImage($image['imageURL']).'" title="'.htmlentities($image['description']).'">'.
+                '<img src="'.$image['thumbURL'].'" alt="'.htmlentities($image['description']).'" /></a>';
             }
-            $imageHTML=preg_replace('/[\r\n]+/', '', $imageHTML);
-            $thumbHTML=preg_replace('/[\r\n]+/', '', $thumbHTML);
+//            $imageHTML=preg_replace('/[\r\n]+/', '', $imageHTML);
+//            $thumbHTML=preg_replace('/[\r\n]+/', '', $thumbHTML);
 
             //取得首张缩略图
 //            $images_obj=Yii::app()->xuk->getImage($pids[0]);
