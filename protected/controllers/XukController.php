@@ -100,9 +100,9 @@ class XukController extends Controller
             $imageHTML='';
             $thumbHTML='';
             if(!empty($images_list)) foreach($images_list as $image){
-                $imageHTML .= '<a href="'.Tools::callImage($image['imageURL']).'" title="'.htmlentities($image['description']).'">'.
+                $imageHTML .= '<a href="'.Tools::callImage($image['imageURL']).'" title="'.htmlentities($image['description']).'" target="_blank">'.
                 '<img src="'.Tools::callImage($image['imageURL'], 660).'" alt="'.htmlentities($image['description']).'" /></a>';
-                $thumbHTML .= '<a href="'.Tools::callImage($image['imageURL']).'" title="'.htmlentities($image['description']).'">'.
+                $thumbHTML .= '<a href="'.Tools::callImage($image['imageURL']).'" title="'.htmlentities($image['description']).'" target="_blank">'.
                 '<img src="'.$image['thumbURL'].'" alt="'.htmlentities($image['description']).'" /></a>';
             }
 //            $imageHTML=preg_replace('/[\r\n]+/', '', $imageHTML);
