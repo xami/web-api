@@ -106,6 +106,9 @@ return array(
         'CURL' =>array(
             'class' => 'application.extensions.Curl',
         ),
+        'image' =>array(
+            'class' => 'application.extensions.image.Image',
+        ),
         'doc360' =>array(
             'class' => 'application.extensions.doc360',
         ),
@@ -119,62 +122,9 @@ return array(
 	'params'=>array(
 		// this is used in contact page
         'adminEmail'=>'admin@lolita.im',
-        'wp_domain'=>'wp',
-        'wp_user'=>'admin',
+        'wp_domain'=>'',
+        'wp_user'=>'',
         'wp_pass'=>'',
         'host'=>$_SERVER['SERVER_NAME'],
-		'ad1'=>'
-<script type="text/javascript"><!--
-google_ad_client = "ca-pub-4726192443658314";
-/* 728x90-首页横幅 */
-google_ad_slot = "1018549157";
-google_ad_width = 728;
-google_ad_height = 90;
-//-->
-</script>
-<script type="text/javascript"
-src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-</script>
-',
-    'ad2'=>'
-<script type="text/javascript"><!--
-google_ad_client = "ca-pub-4726192443658314";
-/* 728x15-链接单元 */
-google_ad_slot = "4456137852";
-google_ad_width = 728;
-google_ad_height = 15;
-//-->
-</script>
-<script type="text/javascript"
-src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-</script>
-',
-        'ad3'=>'
-<script type="text/javascript"><!--
-google_ad_client = "ca-pub-4726192443658314";
-/* 160x600-宽幅摩天大楼 */
-google_ad_slot = "0203809730";
-google_ad_width = 160;
-google_ad_height = 600;
-//-->
-</script>
-<script type="text/javascript"
-src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-</script>
-',
-        'ad4'=>'
-<script type="text/javascript"><!--
-google_ad_client = "ca-pub-4726192443658314";
-/* 336x280-大矩形 */
-google_ad_slot = "3354931463";
-google_ad_width = 336;
-google_ad_height = 280;
-//-->
-</script>
-<script type="text/javascript"
-src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-</script>
-',
-
 	),
 );
