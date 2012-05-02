@@ -53,17 +53,18 @@ class Tools
 	}
 
     public static function callImage($source_src,$width=0){
-        if(empty($source_url))
+        if(empty($source_src))
             return false;
         if(!Tools::is_url($source_src))
             return false;
 
-        $s = '&s='.urlencode($source_src);
+        $s = '&src='.urlencode($source_src);
         $w='';
         if(intval($width)>0){
             $w = '&w='.intval($width);
         }
-        return 'http://api.lolita.im/index.php?r=image'.$w.$s;
+
+        return 'http://api.lolita.im/index.php?r=api/img'.$w.$s;
     }
 	
 	public static function is_url($url){

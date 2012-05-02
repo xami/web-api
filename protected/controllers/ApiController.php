@@ -45,7 +45,7 @@ class ApiController extends Controller
         return $status;
     }
 
-    public function actionImage(){
+    public function actionImg(){
         $cache_time = 3600*24;    //缓存时间：一天
         header("Pragma: public"); // required
         header("Cache-Control: max-age=".$cache_time);//24小时
@@ -334,28 +334,29 @@ class ApiController extends Controller
         }
     }
 
-    public function actionImg(){
-        $src=MCrypy::decrypt(rawurldecode(Yii::app()->request->getParam('src', '')), Yii::app()->params['mcpass'], 128);
-        $r=Tools::getImg($src);
-        //        pd($r);
-        if(!empty($r)
-            && (isset($r['Info']['content_type']) && !empty($r['Info']['content_type']))
-            && (isset($r['Info']['size_download']) && !empty($r['Info']['size_download']))
-        ){
-            if(headers_sent()) die('Headers Sent');
-            if(ini_get('zlib.output_compression')) ini_set('zlib.output_compression', 'Off');
-            header("Pragma: public"); // required
-            header("Cache-Control: max-age=864000");//24小时
-            header('Last-Modified:'.gmdate('D, d M Y H:i:s').'GMT');
-            header('Expires:'.gmdate('D, d M Y H:i:s', time() + '864000').'GMT');
-            header("Cache-Control: private",false); // required for certain browsers
-            header("Content-Type: ".$r['Info']['content_type']);
-            header("Content-Transfer-Encoding: binary");
-            header("Content-Length: ".$r['Info']['size_download']);
-            echo $r['Result'];
-            flush();
-        }else{
-            throw new CHttpException('404','内容失效');
-        }
-    }
+
+//    public function actionImg(){
+//        $src=MCrypy::decrypt(rawurldecode(Yii::app()->request->getParam('src', '')), Yii::app()->params['mcpass'], 128);
+//        $r=Tools::getImg($src);
+//        //        pd($r);
+//        if(!empty($r)
+//            && (isset($r['Info']['content_type']) && !empty($r['Info']['content_type']))
+//            && (isset($r['Info']['size_download']) && !empty($r['Info']['size_download']))
+//        ){
+//            if(headers_sent()) die('Headers Sent');
+//            if(ini_get('zlib.output_compression')) ini_set('zlib.output_compression', 'Off');
+//            header("Pragma: public"); // required
+//            header("Cache-Control: max-age=864000");//24小时
+//            header('Last-Modified:'.gmdate('D, d M Y H:i:s').'GMT');
+//            header('Expires:'.gmdate('D, d M Y H:i:s', time() + '864000').'GMT');
+//            header("Cache-Control: private",false); // required for certain browsers
+//            header("Content-Type: ".$r['Info']['content_type']);
+//            header("Content-Transfer-Encoding: binary");
+//            header("Content-Length: ".$r['Info']['size_download']);
+//            echo $r['Result'];
+//            flush();
+//        }else{
+//            throw new CHttpException('404','内容失效');
+//        }
+//    }
 }
