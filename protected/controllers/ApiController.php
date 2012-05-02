@@ -68,7 +68,7 @@ class ApiController extends Controller
         $ext = md5(serialize(array($height, $width, $mark, $mark_src)));
 
         //直接取得缓存缩略图
-        $data=YII::app()->fcache->get($key.$ext);
+        $data=YII::app()->cache->get($key.$ext);
         if(!empty($data)){              //有缓存直接输出
             $this->showImageString($data);
             exit;
