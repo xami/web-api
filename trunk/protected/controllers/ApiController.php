@@ -54,7 +54,7 @@ class ApiController extends Controller
         header("Cache-Control: private",false); // required for certain browsers
         header("Content-Transfer-Encoding: binary");
 
-        $src  = Yii::app()->request->getParam('src', '');       //图片水印链接
+        $src  = MCrypy::decrypt(Yii::app()->request->getParam('src', ''), Yii::app()->params['MCrypy'], 128);       //图片水印链接
         if(empty($src) || !Tools::is_url($src)){
             throw new CException('Src must be real url', 1);
         }

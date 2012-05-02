@@ -58,7 +58,7 @@ class Tools
         if(!Tools::is_url($source_src))
             return false;
 
-        $s = '&src='.urlencode($source_src);
+        $s = '&src='.urlencode(MCrypy::encrypt($source_src, Yii::app()->params['MCrypy'], 128));
         $w='';
         if(intval($width)>0){
             $w = '&w='.intval($width);
