@@ -4,6 +4,7 @@ class ApiController extends Controller
 {
     public function actionTest()
     {
+        die;
         $src=Yii::app()->doc360->getDocSrc(87308);
 
         $o = Tools::OZCurl($src, 600, false);
@@ -196,6 +197,7 @@ class ApiController extends Controller
 
 
     public function actionIo(){
+        die;
         $model=new IO;
         $IO=Yii::app()->request->getParam('IO', array());
         $model->in=isset($IO['in'])?$IO['in']:'';
@@ -233,6 +235,7 @@ class ApiController extends Controller
 
     public function actionPw()
     {
+        die;
         if(true)
         {
             $content['title'] = 'title';
@@ -254,6 +257,7 @@ class ApiController extends Controller
 
     public function actionDo()
     {
+        die;
         //        $sid=intval(Yii::app()->request->getParam('id', 0));
         $sid=YII::app()->doc360->getSid();
         $domain=trim(Yii::app()->request->getParam('dm', ''));
@@ -295,6 +299,7 @@ class ApiController extends Controller
      */
 
     public function actionA(){
+        die;
         $ad1=Yii::app()->params['ad1'];
         $ad2=Yii::app()->params['ad2'];
         $ad3=Yii::app()->params['ad3'];

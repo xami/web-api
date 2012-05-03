@@ -186,10 +186,6 @@ class XukController extends Controller
 
     }
 
-    public function actionPublish(){
-        $page=intval(Yii::app()->request->getParam('p', 1));
-    }
-
 	// Uncomment the following methods and override them if needed
 	/*
 	public function filters()
