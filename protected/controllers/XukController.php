@@ -12,6 +12,12 @@ class XukController extends Controller
             throw new CException('页号错误', 1);
         }
 
+        include_once(
+            Yii::getPathOfAlias(
+                'application.extensions'
+            ).DIRECTORY_SEPARATOR.'class-IXR.php'
+        );
+
         //取得此页链接
         $src='http://xuk.lolita.im/'.$page.'.html';
         $data = Tools::OZCurl($src, 600, false);
