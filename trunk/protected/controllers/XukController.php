@@ -22,7 +22,7 @@ class XukController extends Controller
         $src='http://xuk.lolita.im/'.$page.'.html';
         $data = Tools::OZCurl($src, 600, false);
         $html=$data['Result'];
-        pd($html);
+        pd($src);
         if (strlen($html)<500) {
             //throw new CException('列表页面内容取得错误', 2);
             IXR_Server::output(WpRemote::IXR_Error(404, '列表页面内容取得错误'));
