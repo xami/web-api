@@ -22,6 +22,7 @@ class XukController extends Controller
         $src='http://xuk.lolita.im/'.$page.'.html';
         $data = Tools::OZCurl($src, 600, false);
         $html=$data['Result'];
+        pd($html);
         if (strlen($html)<500) {
             //throw new CException('列表页面内容取得错误', 2);
             IXR_Server::output(WpRemote::IXR_Error(404, '列表页面内容取得错误'));
@@ -101,7 +102,6 @@ class XukController extends Controller
             }
 
             $images_list=Yii::app()->xuk->getImages($gid);
-            pd($images_list);
 
             // 取得缩略图列表
             $imageHTML='';
