@@ -197,7 +197,7 @@ class ApiController extends Controller
 
 
     public function actionIo(){
-        die;
+        if($_SERVER['REMOTE_ADDR']!='127.0.0.1') die;
         $model=new IO;
         $IO=Yii::app()->request->getParam('IO', array());
         $model->in=isset($IO['in'])?$IO['in']:'';
