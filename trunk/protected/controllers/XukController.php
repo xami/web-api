@@ -22,7 +22,7 @@ class XukController extends Controller
         $src='http://xuk.lolita.im/'.$page.'.html';
         $data = Tools::OZCurl($src, 600, false);
         $html=$data['Result'];
-        pd($data);
+
         if (strlen($html)<500) {
             //throw new CException('列表页面内容取得错误', 2);
             IXR_Server::output(WpRemote::IXR_Error(404, '列表页面内容取得错误'));
@@ -54,7 +54,7 @@ class XukController extends Controller
                 preg_match('/\/([\w\d_]*)\/\d+\(www\.xuk\.ru\)\d{0,3}\.jpg$/i', $file, $cut_key);
                 $all[$i]['key']=isset($cut_key[1]) ? $cut_key[1] : '';
             }
-//          break;
+          break;
         }
 //        $all=array($all[0]);
 //        pd($all);
