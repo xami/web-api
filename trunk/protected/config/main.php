@@ -50,16 +50,19 @@ return array(
 			'allowAutoLogin'=>true,
 		),
 		// uncomment the following to enable URLs in path-format
-		/*
+//		/*
 		'urlManager'=>array(
 			'urlFormat'=>'path',
 			'rules'=>array(
+                '<controller:(img)>/<w:\d+>/<src:\w+>'=>array('api/img', 'caseSensitive'=>false),
+
 				'<controller:\w+>/<id:\d+>'=>'<controller>/view',
 				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
 				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
 			),
+            'showScriptName'=>false,
 		),
-		*/
+//		*/
 		// uncomment the following to use a MySQL database
 
 		'db'=>array(
@@ -126,5 +129,6 @@ return array(
         'wp_user'=>'',
         'wp_pass'=>'',
         'host'=>$_SERVER['SERVER_NAME'],
+        'MCrypy'=>'hAU]8Pz;IdwBhK@wU^|ey6j4=|M x)k~w_;pD#Gnl[i~=@4YswKszS|J![nOhVBX',
 	),
 );
