@@ -131,7 +131,7 @@ class XukController extends Controller
             $key=array('title', 'description', 'wp_slug', 'mt_excerpt', 'mt_keywords', 'mt_text_more',  'categories', 'post_mark', 'thumbnail', 'gallery');
             $val=array(
                 $item['name'],
-                'I\'m LoLiTa ('.CHtml::link($tag_link, $tag_link, array('alt'=>$item['cat'] .','. $name_slug .','. $item['key'] .','. $name_slug.'.lolita.im')).')',
+                'Lolita.im ('.CHtml::link($tag_link, $tag_link, array('alt'=>$item['cat'] .','. $name_slug .','. $item['key'] .','. $name_slug.'.lolita.im')).')',
                 $name_slug,
                 $thumbHTML,
                 array($item['cat'], $name_slug, $item['key'], $name_slug.'.lolita.im'),
