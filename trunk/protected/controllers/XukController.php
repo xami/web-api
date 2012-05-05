@@ -54,7 +54,7 @@ class XukController extends Controller
                 preg_match('/\/([\w\d_]*)\/\d+\(www\.xuk\.ru\)\d{0,3}\.jpg$/i', $file, $cut_key);
                 $all[$i]['key']=isset($cut_key[1]) ? $cut_key[1] : '';
             }
-          break;
+//          break;
         }
 //        $all=array($all[0]);
 //        pd($all);
