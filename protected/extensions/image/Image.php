@@ -189,9 +189,9 @@ class Image {
 		return $this;
 	}
 	
-	public function watermark($wm_str, $is_url)
+	public function watermark($wm_str, $is_url, $ww=0)
 	{
-		$this->actions['watermark']=array('wm_str'=>$wm_str, 'is_url'=>$is_url);
+		$this->actions['watermark']=array('wm_str'=>$wm_str, 'is_url'=>$is_url, 'wm_width'=>$ww);
 		return $this;
 	}
 
