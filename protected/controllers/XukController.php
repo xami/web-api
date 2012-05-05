@@ -5,6 +5,7 @@ class XukController extends Controller
     public function actionIndex()
     {
         ini_set('max_execution_time', 3600);
+        pd($_SERVER['HTTP_HOST']);
         if($_SERVER['HTTP_HOST'] != 'api.lolita.im') return false;
 
         //get the page number
