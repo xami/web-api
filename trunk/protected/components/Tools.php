@@ -58,13 +58,13 @@ class Tools
         if(!Tools::is_url($source_src))
             return false;
 
-        $s = urlencode(MCrypy::encrypt($source_src, Yii::app()->params['MCrypy'], 128));
-        $w=0;
+        $s = '&src='.urlencode(MCrypy::encrypt($source_src, Yii::app()->params['MCrypy'], 128));
+        $w='';
         if(intval($width)>0){
-            $w = intval($width);
+            $w = '&w='.intval($width);
         }
 
-        return 'http://api.lolita.im/img/'.$w.'/'.$s;
+        return 'http://api.lolita.im/index.php?r=api/img'.$w.$s;
     }
 	
 	public static function is_url($url){
