@@ -316,6 +316,7 @@ class Image_GD_Driver extends Image_Driver {
 	{
         $is_url=$wm['is_url'];
         $wm_str=$wm['wm_str'];
+        $wm_width=intval($wm['wm_width']);
 		$width = imagesx($this->tmp_image);
 		$height = imagesy($this->tmp_image);
 
@@ -327,7 +328,7 @@ class Image_GD_Driver extends Image_Driver {
             $ww = imagesx($watermark);
             $wh = imagesy($watermark);
         }else{
-            $ww=140;
+            $ww=($wm_width>0) ? $wm_width : 140;
             $wh=50;
             $font = Yii::getPathOfAlias(
                 'application.extensions.image.font'

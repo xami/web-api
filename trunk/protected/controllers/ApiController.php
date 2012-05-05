@@ -58,6 +58,7 @@ class ApiController extends Controller
         //缩放
         $height    = intval(Yii::app()->request->getParam('h', 0));
         $width     = intval(Yii::app()->request->getParam('w', 0));
+        $ww     = intval(Yii::app()->request->getParam('ww', 0));
         $mark      = Yii::app()->request->getParam('m', 'Lolita.im');       //文字水印
         $mark_src  = trim(Yii::app()->request->getParam('ms', ''));      //图片水印链接
         $ext = md5(serialize(array($height, $width, $mark, $mark_src)));
@@ -125,9 +126,9 @@ class ApiController extends Controller
         if($width>285){
             //设置水印
             if(!empty($mark)){
-                $image->watermark($mark, false);
+                $image->watermark($mark, false, $ww);
             }else if(!empty($mark_src)){
-                $image->watermark($mark_src,true);
+                $image->watermark($mark_src,true, $ww);
             }
         }
 
