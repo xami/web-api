@@ -111,6 +111,10 @@ class ApiController extends Controller
             $width=$ws;
             $height=$hs;
         }
+        //不能比原始尺寸大
+        if($width>$ws) $width=$ws;
+        if($height>$hs) $height=$hs;
+
         if($width>0 && $height>0)
             $image->resize($width, $height);
 
