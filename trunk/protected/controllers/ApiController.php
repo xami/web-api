@@ -59,11 +59,9 @@ class ApiController extends Controller
         $height    = intval(Yii::app()->request->getParam('h', 0));
         $width     = intval(Yii::app()->request->getParam('w', 0));
         $ww     = intval(Yii::app()->request->getParam('ww', 0));
-        $mark      = Yii::app()->request->getParam('m', 'Lolita.im');       //文字水印
         $mark_src  = trim(Yii::app()->request->getParam('ms', ''));      //图片水印链接
+        $mark = !empty($mark) ? MCrypy::decrypt($mark, Yii::app()->params['MCrypy'], 128) : 'Lolita.im';  //文字水印
         $ext = md5(serialize(array($height, $width, $mark, $mark_src)));
-        $mark = !empty($mark) ? MCrypy::decrypt($mark, Yii::app()->params['MCrypy'], 128) : '';
-
         //直接取得缓存缩略图
         $data=YII::app()->cache->get($key.$ext);
         if(!empty($data)){              //有缓存直接输出
